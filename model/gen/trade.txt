@@ -1,0 +1,160 @@
+TradeModifyResponse
+{
+    #
+    # The Transaction created that cancels the Trade’s existing Take Profit
+    # Order.
+    #
+    takeProfitOrderCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that creates a new Take Profit Order for the
+    # Trade.
+    #
+    takeProfitOrderTransaction : (TakeProfitOrderTransaction),
+
+    #
+    # The Transaction created that immediately fills the Trade’s new Take
+    # Profit Order. Only provided if the new Take Profit Order was immediately
+    # filled.
+    #
+    takeProfitOrderFillTransaction : (OrderFillTransaction),
+
+    #
+    # The Transaction created that immediately cancels the Trade’s new Take
+    # Profit Order. Only provided if the new Take Profit Order was immediately
+    # cancelled.
+    #
+    takeProfitOrderCreatedCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that cancels the Trade’s existing Stop Loss
+    # Order.
+    #
+    stopLossOrderCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that creates a new Stop Loss Order for the Trade.
+    #
+    stopLossOrderTransaction : (StopLossOrderTransaction),
+
+    #
+    # The Transaction created that immediately fills the Trade’s new Stop
+    # Order. Only provided if the new Stop Loss Order was immediately filled.
+    #
+    stopLossOrderFillTransaction : (OrderFillTransaction),
+
+    #
+    # The Transaction created that immediately cancels the Trade’s new Stop
+    # Loss Order. Only provided if the new Stop Loss Order was immediately
+    # cancelled.
+    #
+    stopLossOrderCreatedCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that cancels the Trade’s existing Trailing Stop
+    # Loss Order.
+    #
+    trailingStopLossOrderCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that creates a new Trailing Stop Loss Order for
+    # the Trade.
+    #
+    trailingStopLossOrderTransaction : (TrailingStopLossOrderTransaction),
+
+    #
+    # The Transaction created that cancels the Trade’s existing Guaranteed Stop
+    # Loss Order.
+    #
+    guaranteedStopLossOrderCancelTransaction : (OrderCancelTransaction),
+
+    #
+    # The Transaction created that creates a new Guaranteed Stop Loss Order for
+    # the Trade.
+    #
+    guaranteedStopLossOrderTransaction : (GuaranteedStopLossOrderTransaction),
+
+    #
+    # The IDs of all Transactions that were created while satisfying the
+    # request.
+    #
+    relatedTransactionIDs : (Array[TransactionID]),
+
+    #
+    # The ID of the most recent Transaction created for the Account
+    #
+    lastTransactionID : (TransactionID)
+}
+
+TradeModifyError
+{
+    #
+    # An OrderCancelRejectTransaction represents the rejection of the
+    # cancellation of an Order in the client’s Account.
+    #
+    takeProfitOrderCancelRejectTransaction : (OrderCancelRejectTransaction),
+
+    #
+    # A TakeProfitOrderRejectTransaction represents the rejection of the
+    # creation of a TakeProfit Order.
+    #
+    takeProfitOrderRejectTransaction : (TakeProfitOrderRejectTransaction),
+
+    #
+    # An OrderCancelRejectTransaction represents the rejection of the
+    # cancellation of an Order in the client’s Account.
+    #
+    stopLossOrderCancelRejectTransaction : (OrderCancelRejectTransaction),
+
+    #
+    # A StopLossOrderRejectTransaction represents the rejection of the creation
+    # of a StopLoss Order.
+    #
+    stopLossOrderRejectTransaction : (StopLossOrderRejectTransaction),
+
+    #
+    # An OrderCancelRejectTransaction represents the rejection of the
+    # cancellation of an Order in the client’s Account.
+    #
+    trailingStopLossOrderCancelRejectTransaction : (OrderCancelRejectTransaction),
+
+    #
+    # A TrailingStopLossOrderRejectTransaction represents the rejection of the
+    # creation of a TrailingStopLoss Order.
+    #
+    trailingStopLossOrderRejectTransaction : (TrailingStopLossOrderRejectTransaction),
+
+    #
+    # An OrderCancelRejectTransaction represents the rejection of the
+    # cancellation of an Order in the client’s Account.
+    #
+    guaranteedStopLossOrderCancelRejectTransaction : (OrderCancelRejectTransaction),
+
+    #
+    # A GuaranteedStopLossOrderRejectTransaction represents the rejection of
+    # the creation of a GuaranteedStopLoss Order.
+    #
+    guaranteedStopLossOrderRejectTransaction : (GuaranteedStopLossOrderRejectTransaction),
+
+    #
+    # The ID of the most recent Transaction created for the Account.
+    #
+    lastTransactionID : (TransactionID),
+
+    #
+    # The IDs of all Transactions that were created while satisfying the
+    # request.
+    #
+    relatedTransactionIDs : (Array[TransactionID]),
+
+    #
+    # The code of the error that has occurred. This field may not be returned
+    # for some errors.
+    #
+    errorCode : (string),
+
+    #
+    # The human-readable description of the error that has occurred.
+    #
+    errorMessage : (string, required)
+}

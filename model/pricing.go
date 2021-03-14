@@ -2,6 +2,7 @@
 package model
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -55,7 +56,8 @@ type QuoteHomeConversionFactors struct {
 	NegativeUnits DecimalNumber `json:"negativeUnits"`
 }
 
-// A PricingHeartbeat object is injected into the Pricing stream to ensure that the HTTP connection remains active.
+// A PricingHeartbeat object is injected into the Pricing stream to ensure that the
+// HTTP connection remains active.
 type Heartbeat struct {
 	// The string “HEARTBEAT”
 	Type string `json:"type"`
@@ -70,6 +72,14 @@ type Heartbeat struct {
 // 3) PricingComponent
 // 		e.g. EUR_USD:S10:BM
 type CandleSpecification string
+
+func NewCandleSpecification(
+	instrument InstrumentName,
+	granularity CandlestickGranularity,
+	price PricingComponent,
+) CandleSpecification {
+	return CandleSpecification(fmt.Sprintf("%s:%s:%s", instrument, granularity, price))
+}
 
 func (c CandleSpecification) Parse() (InstrumentName, string, PricingComponent) {
 	var (
@@ -95,4 +105,26 @@ func (c CandleSpecification) Parse() (InstrumentName, string, PricingComponent) 
 		}
 	}
 	return instrument, granularity, component
+}
+
+// HomeConversions represents the factors to use to convert quantities
+// of a given currency into the Account’s home currency. The conversion factor depends
+// on the scenario the conversion is required for.
+type HomeConversions struct {
+	// The currency to be converted into the home currency.
+	Currency Currency `json:"currency"`
+	// The factor used to convert any gains for an Account in the specified
+	// currency into the Account’s home currency. This would include positive
+	// realized P/L and positive financing amounts. Conversion is performed by
+	// multiplying the positive P/L by the conversion factor.
+	AccountGain DecimalNumber `json:"accountGain"`
+	// The factor used to convert any losses for an Account in the specified
+	// currency into the Account’s home currency. This would include negative
+	// realized P/L and negative financing amounts. Conversion is performed by
+	// multiplying the positive P/L by the conversion factor.
+	AccountLoss DecimalNumber `json:"accountLoss"`
+	// The factor used to convert a Position or Trade Value in the specified
+	// currency into the Account’s home currency. Conversion is performed by
+	// multiplying the Position or Trade Value by the conversion factor.
+	PositionValue DecimalNumber `json:"positionValue"`
 }

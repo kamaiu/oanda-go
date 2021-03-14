@@ -1,6 +1,19 @@
 //go:generate easyjson -all $GOFILE
 package model
 
+// The financing mode of an Account
+type AccountFinancingMode string
+
+const (
+	// No financing is paid/charged for open Trades in the Account
+	FinancingMode_NO_FINANCING AccountFinancingMode = "NO_FINANCING"
+	// Second-by-second financing is paid/charged for open Trades in the Account,
+	// both daily and when the the Trade is closed
+	FinancingMode_SECOND_BY_SECOND AccountFinancingMode = "SECOND_BY_SECOND"
+	// A full day’s worth of financing is paid/charged for open Trades in the Account daily at 5pm New York time
+	FinancingMode_DAILY AccountFinancingMode = "DAILY"
+)
+
 // The current mutability and hedging settings related to guaranteed Stop Loss orders.
 type GuaranteedStopLossOrderParameters struct {
 	// The current guaranteed Stop Loss Order mutability setting of the Account when market is open.

@@ -10,7 +10,7 @@ import (
 
 // POST /v3/accounts/{accountID}/orders
 // Create an Order for an Account
-func (c *Connection) CreateOrder(
+func (c *Connection) OrderCreate(
 	accountID AccountID,
 	request OrderRequest,
 ) (*CreateOrderResponse, *CreateOrderError, error) {
@@ -102,11 +102,11 @@ func (c *Connection) Orders(
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -115,16 +115,16 @@ func (c *Connection) Orders(
 
 // GET	/v3/accounts/{accountID}/pendingOrders
 // List all pending Orders in an Account
-func (c *Connection) PendingOrders(
+func (c *Connection) OrdersPending(
 	accountID AccountID,
 ) (*OrdersResponse, error) {
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/pendingOrders")
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -140,11 +140,11 @@ func (c *Connection) OrdersBySpecifier(
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -154,7 +154,7 @@ func (c *Connection) OrdersBySpecifier(
 // PUT /v3/accounts/{accountID}/orders/{orderSpecifier}
 // Replace an Order in an Account by simultaneously cancelling
 // it and creating a replacement Order
-func (c *Connection) ReplaceOrder(
+func (c *Connection) OrderReplace(
 	accountID AccountID,
 	specifier OrderSpecifier,
 	order OrderRequest,
@@ -187,11 +187,11 @@ func (c *Connection) ReplaceOrder(
 
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
-	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
+	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
 	defer ctx.release()
 
 	// Set body
@@ -239,18 +239,18 @@ func (c *Connection) ReplaceOrder(
 // PUT /v3/accounts/{accountID}/orders/{orderSpecifier}
 // Replace an Order in an Account by simultaneously cancelling
 // it and creating a replacement Order
-func (c *Connection) CancelOrder(
+func (c *Connection) OrderCancel(
 	accountID AccountID,
 	specifier OrderSpecifier,
 ) (*CancelOrderResponse, *CancelOrderError, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/cancel")
-	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
+	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
 	defer ctx.release()
 
 	err := fasthttp.DoRedirects(ctx.req, ctx.resp, maxRedirectsCount)
@@ -304,12 +304,12 @@ func (c *Connection) OrderClientExtensions(
 	}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/clientExtensions")
-	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
+	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}

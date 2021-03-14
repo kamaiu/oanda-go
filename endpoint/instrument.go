@@ -18,12 +18,12 @@ func (c *Connection) InstrumentCandles(
 	resp := &CandlestickResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/instruments/")
+	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(request.Instrument))
 	_, _ = url.WriteString("/candles?")
 	request.AppendQuery(url)
 
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -47,12 +47,12 @@ func (c *Connection) InstrumentOrderBook(
 	resp := &OrderBookResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/instruments/")
+	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(instrument))
 	_, _ = url.WriteString("/orderBook?time=")
 	_, _ = url.WriteString(t.Format(time.RFC3339))
 
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -76,12 +76,12 @@ func (c *Connection) InstrumentPositionBook(
 	resp := &PositionBookResponse{}
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/instruments/")
+	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(instrument))
 	_, _ = url.WriteString("/positionBook?time=")
 	_, _ = url.WriteString(t.Format(time.RFC3339))
 
-	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
+	_, err := doGET(c, url, c.headers.DateFormat, resp)
 	if err != nil {
 		return nil, err
 	}

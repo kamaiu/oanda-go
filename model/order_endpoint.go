@@ -4,38 +4,79 @@ package model
 import (
 	"github.com/valyala/bytebufferpool"
 	"strconv"
-	"strings"
-	"unsafe"
 )
 
 type OrdersRequest struct {
-	IDs        []OrderID
-	State      OrderStateFilter
-	Instrument InstrumentName
-	Count      int
-	BeforeID   OrderID
+	// List of Order IDs to retrieve
+	IDs []OrderID `json:"ids"`
+	// The state to filter the requested Orders by
+	// [default=PENDING]
+	State OrderStateFilter `json:"state"`
+	// The instrument to filter the requested orders by
+	Instrument InstrumentName `json:"instrument"`
+	// The maximum number of Orders to return
+	// [default=50, maximum=500]
+	Count int `json:"count"`
+	// The maximum Order ID to return. If not provided the most
+	// recent Orders in the Account are returned
+	BeforeID OrderID `json:"beforeID"`
 }
 
+func NewOrdersRequest() *OrdersRequest {
+	return &OrdersRequest{
+		State: OrderStateFilter_PENDING,
+		Count: 50,
+	}
+}
+
+// List of Order IDs to retrieve
 func (g *OrdersRequest) WithIDs(ids ...OrderID) *OrdersRequest {
 	g.IDs = ids
 	return g
 }
+
+// The state to filter the requested Orders by
+// [default=PENDING]
 func (g *OrdersRequest) WithState(state OrderStateFilter) *OrdersRequest {
-	g.State = state
+	switch state {
+	case OrderStateFilter_PENDING,
+		OrderStateFilter_CANCELLED,
+		OrderStateFilter_FILLED,
+		OrderStateFilter_TRIGGERED,
+		OrderStateFilter_ALL:
+		g.State = state
+	default:
+		g.State = OrderStateFilter_PENDING
+	}
 	return g
 }
+
+// The instrument to filter the requested orders by
 func (g *OrdersRequest) WithInstrument(instrument InstrumentName) *OrdersRequest {
 	g.Instrument = instrument
 	return g
 }
+
+// The maximum number of Orders to return
+// [default=50, maximum=500]
 func (g *OrdersRequest) WithCount(count int) *OrdersRequest {
-	g.Count = count
+	if count < 1 {
+		count = 50
+	} else if count > 500 {
+		count = 500
+	} else {
+		g.Count = count
+	}
 	return g
 }
+
+// The maximum Order ID to return. If not provided the most
+// recent Orders in the Account are returned
 func (g *OrdersRequest) WithBeforeID(beforeID OrderID) *OrdersRequest {
 	g.BeforeID = beforeID
 	return g
 }
+
 func (g *OrdersRequest) AppendQuery(b *bytebufferpool.ByteBuffer) {
 	_, _ = b.WriteString("count=")
 	if g.Count <= 0 {
@@ -57,7 +98,12 @@ func (g *OrdersRequest) AppendQuery(b *bytebufferpool.ByteBuffer) {
 	}
 	if len(g.IDs) > 0 {
 		_, _ = b.WriteString("&ids=")
-		_, _ = b.WriteString(strings.Join(*(*[]string)(unsafe.Pointer(&g.IDs)), ","))
+		for i, id := range g.IDs {
+			if i > 0 {
+				_ = b.WriteByte(',')
+			}
+			_, _ = b.WriteString((string)(id))
+		}
 	}
 }
 

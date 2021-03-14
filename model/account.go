@@ -20,19 +20,6 @@ func (s AccountID) Parse() (siteID string, divisionID string, userID string, acc
 	return p[0], p[1], p[2], p[3], nil
 }
 
-// The financing mode of an Account
-type AccountFinancingMode string
-
-const (
-	// No financing is paid/charged for open Trades in the Account
-	FinancingMode_NO_FINANCING AccountFinancingMode = "NO_FINANCING"
-	// Second-by-second financing is paid/charged for open Trades in the Account,
-	// both daily and when the the Trade is closed
-	FinancingMode_SECOND_BY_SECOND AccountFinancingMode = "SECOND_BY_SECOND"
-	// A full day’s worth of financing is paid/charged for open Trades in the Account daily at 5pm New York time
-	FinancingMode_DAILY AccountFinancingMode = "DAILY"
-)
-
 // The full details of a client’s Account. This includes full open Trade, open Position
 // and pending Order representation.
 type Account struct {

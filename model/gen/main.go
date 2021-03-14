@@ -39,7 +39,8 @@ type EnumOption struct {
 
 func main() {
 	fmt.Println()
-	generateObjects("tx.txt", true)
+	generateObjects("./model/gen/position.txt", true)
+	//generateObjects("tx.txt", true)
 	//generateObjects("order_request.txt", true)
 }
 

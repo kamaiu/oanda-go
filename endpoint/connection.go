@@ -31,10 +31,10 @@ func (s StatusCodeError) Error() string {
 }
 
 type Headers struct {
-	contentType    string
-	agent          string
-	DatetimeFormat string
-	auth           string
+	contentType string
+	agent       string
+	DateFormat  AcceptDatetimeFormat
+	auth        string
 }
 
 var client = &fasthttp.Client{
@@ -64,12 +64,13 @@ type urls struct {
 
 type Connection struct {
 	hostname       string
+	streamingHost  string
 	hostnameBytes  []byte
 	port           int
 	ssl            bool
 	token          string
 	DatetimeFormat string
-	headers        *Headers
+	headers        Headers
 	client         *fasthttp.Client
 	urls           urls
 }
@@ -78,11 +79,14 @@ const OANDA_AGENT string = "v20-go/0.9.0"
 
 func NewConnection(token string, live bool) *Connection {
 	hostname := ""
+	streamingHost := ""
 	// should we use the live API?
 	if live {
-		hostname = "https://api-fxtrade.oanda.com/v3"
+		hostname = "https://api-fxtrade.oanda.com"
+		streamingHost = "https://stream-fxtrade.oanda.com"
 	} else {
 		hostname = "https://api-fxpractice.oanda.com/v3"
+		streamingHost = "https://stream-fxpractice.oanda.com"
 	}
 
 	var buffer bytes.Buffer
@@ -92,16 +96,17 @@ func NewConnection(token string, live bool) *Connection {
 
 	authHeader := buffer.String()
 	// Create headers for oanda to be used in requests
-	headers := &Headers{
-		contentType:    "application/json",
-		agent:          OANDA_AGENT,
-		DatetimeFormat: "RFC3339",
-		auth:           authHeader,
+	headers := Headers{
+		contentType: "application/json",
+		agent:       OANDA_AGENT,
+		DateFormat:  "RFC3339",
+		auth:        authHeader,
 	}
 	// Create the Connection object
 	connection := &Connection{
 		hostname:      hostname,
 		hostnameBytes: []byte(hostname),
+		streamingHost: streamingHost,
 		port:          443,
 		ssl:           true,
 		token:         token,

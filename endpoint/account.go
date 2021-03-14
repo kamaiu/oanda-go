@@ -13,10 +13,10 @@ func (c *Connection) Accounts() (*AccountsResponse, error) {
 	// Build URL
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts")
+	_, _ = url.WriteString("/v3/accounts")
 
 	resp := &AccountsResponse{}
-	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
+	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -27,10 +27,10 @@ func (c *Connection) Accounts() (*AccountsResponse, error) {
 func (c *Connection) Account(id AccountID) (*Account, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	resp := &AccountResponse{}
-	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
+	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
 		return nil, err
 	}
 	return resp.Account, nil
@@ -41,11 +41,11 @@ func (c *Connection) Account(id AccountID) (*Account, error) {
 func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/summary")
 	resp := &AccountSummaryResponse{}
-	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
+	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -55,10 +55,10 @@ func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, erro
 // Get the list of tradeable instruments for the given Account. The list of tradeable
 // instruments is dependent on the regulatory division that the Account is located in,
 // thus should be the same for all Accounts owned by a single user.
-func (c *Connection) GetAccountInstruments(id AccountID, filter []string) (*AccountInstrumentsResponse, error) {
+func (c *Connection) AccountInstruments(id AccountID, filter []string) (*AccountInstrumentsResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	if len(filter) > 0 {
 		_, _ = url.WriteString("/instruments?instruments=")
@@ -73,7 +73,7 @@ func (c *Connection) GetAccountInstruments(id AccountID, filter []string) (*Acco
 	}
 
 	resp := &AccountInstrumentsResponse{}
-	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
+	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -87,11 +87,11 @@ func (c *Connection) AccountConfigure(
 ) (*AccountConfigurationResponse, *AccountConfigurationError, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
-	_, _ = url.WriteString("/configuration")
+	_, _ = url.WriteString("/v3/configuration")
 
-	ctx := newCall(c, fasthttp.MethodPatch, url, AcceptDatetimeFormat_RFC3339)
+	ctx := newCall(c, fasthttp.MethodPatch, url, c.headers.DateFormat)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}
@@ -139,13 +139,13 @@ func (c *Connection) AccountConfigure(
 func (c *Connection) AccountChanges(id AccountID, sinceTransactionID TransactionID) (*AccountChangesResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/changes?sinceTransactionID=")
 	_, _ = url.WriteString((string)(sinceTransactionID))
 
 	resp := &AccountChangesResponse{}
-	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
+	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil

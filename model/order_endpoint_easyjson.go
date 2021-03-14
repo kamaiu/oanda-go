@@ -153,7 +153,7 @@ func easyjsonBdf69d58DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *O
 			continue
 		}
 		switch key {
-		case "IDs":
+		case "ids":
 			if in.IsNull() {
 				in.Skip()
 				out.IDs = nil
@@ -176,13 +176,13 @@ func easyjsonBdf69d58DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *O
 				}
 				in.Delim(']')
 			}
-		case "State":
+		case "state":
 			out.State = OrderStateFilter(in.String())
-		case "Instrument":
+		case "instrument":
 			out.Instrument = InstrumentName(in.String())
-		case "Count":
+		case "count":
 			out.Count = int(in.Int())
-		case "BeforeID":
+		case "beforeID":
 			out.BeforeID = OrderID(in.String())
 		default:
 			in.SkipRecursive()
@@ -199,7 +199,7 @@ func easyjsonBdf69d58EncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in 
 	first := true
 	_ = first
 	{
-		const prefix string = ",\"IDs\":"
+		const prefix string = ",\"ids\":"
 		out.RawString(prefix[1:])
 		if in.IDs == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
 			out.RawString("null")
@@ -215,22 +215,22 @@ func easyjsonBdf69d58EncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in 
 		}
 	}
 	{
-		const prefix string = ",\"State\":"
+		const prefix string = ",\"state\":"
 		out.RawString(prefix)
 		out.String(string(in.State))
 	}
 	{
-		const prefix string = ",\"Instrument\":"
+		const prefix string = ",\"instrument\":"
 		out.RawString(prefix)
 		out.String(string(in.Instrument))
 	}
 	{
-		const prefix string = ",\"Count\":"
+		const prefix string = ",\"count\":"
 		out.RawString(prefix)
 		out.Int(int(in.Count))
 	}
 	{
-		const prefix string = ",\"BeforeID\":"
+		const prefix string = ",\"beforeID\":"
 		out.RawString(prefix)
 		out.String(string(in.BeforeID))
 	}
