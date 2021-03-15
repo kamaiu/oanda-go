@@ -42,7 +42,7 @@ func (c *Connection) OrderCreate(
 
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.hostname)
-	_, _ = url.WriteString("/accounts/")
+	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders")
 	ctx := newCall(c, fasthttp.MethodPost, url, AcceptDatetimeFormat_RFC3339)
@@ -106,7 +106,7 @@ func (c *Connection) Orders(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +124,7 @@ func (c *Connection) OrdersPending(
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/pendingOrders")
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -144,7 +144,7 @@ func (c *Connection) OrdersBySpecifier(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -191,7 +191,7 @@ func (c *Connection) OrderReplace(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	// Set body
@@ -250,7 +250,7 @@ func (c *Connection) OrderCancel(
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/cancel")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	err := fasthttp.DoRedirects(ctx.req, ctx.resp, maxRedirectsCount)
@@ -309,7 +309,7 @@ func (c *Connection) OrderClientExtensions(
 	_, _ = url.WriteString("/orders/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/clientExtensions")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}

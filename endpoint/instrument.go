@@ -23,7 +23,7 @@ func (c *Connection) InstrumentCandles(
 	_, _ = url.WriteString("/candles?")
 	request.AppendQuery(url)
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func (c *Connection) InstrumentOrderBook(
 	_, _ = url.WriteString("/orderBook?time=")
 	_, _ = url.WriteString(t.Format(time.RFC3339))
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func (c *Connection) InstrumentPositionBook(
 	_, _ = url.WriteString("/positionBook?time=")
 	_, _ = url.WriteString(t.Format(time.RFC3339))
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}

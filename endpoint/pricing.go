@@ -23,7 +23,7 @@ func (c *Connection) CandlesLatest(
 	_, _ = url.WriteString("/candles/latest?")
 	request.AppendQuery(url)
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *Connection) Pricing(
 	_, _ = url.WriteString("/pricing?")
 	request.AppendQuery(url)
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (c *Connection) PricingCandles(
 	_, _ = url.WriteString("/candles?")
 	request.AppendQuery(url)
 
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}

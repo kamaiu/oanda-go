@@ -16,7 +16,7 @@ func (c *Connection) Accounts() (*AccountsResponse, error) {
 	_, _ = url.WriteString("/v3/accounts")
 
 	resp := &AccountsResponse{}
-	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
+	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -30,7 +30,7 @@ func (c *Connection) Account(id AccountID) (*Account, error) {
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	resp := &AccountResponse{}
-	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
+	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
 		return nil, err
 	}
 	return resp.Account, nil
@@ -45,7 +45,7 @@ func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, erro
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/summary")
 	resp := &AccountSummaryResponse{}
-	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
+	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -73,7 +73,7 @@ func (c *Connection) AccountInstruments(id AccountID, filter []string) (*Account
 	}
 
 	resp := &AccountInstrumentsResponse{}
-	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
+	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil
@@ -91,7 +91,7 @@ func (c *Connection) AccountConfigure(
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/v3/configuration")
 
-	ctx := newCall(c, fasthttp.MethodPatch, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPatch, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}
@@ -145,7 +145,7 @@ func (c *Connection) AccountChanges(id AccountID, sinceTransactionID Transaction
 	_, _ = url.WriteString((string)(sinceTransactionID))
 
 	resp := &AccountChangesResponse{}
-	if _, err := doGET(c, url, c.headers.DateFormat, resp); err != nil {
+	if _, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp); err != nil {
 		return nil, err
 	}
 	return resp, nil

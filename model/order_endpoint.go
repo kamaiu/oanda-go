@@ -100,7 +100,7 @@ func (g *OrdersRequest) AppendQuery(b *bytebufferpool.ByteBuffer) {
 		_, _ = b.WriteString("&ids=")
 		for i, id := range g.IDs {
 			if i > 0 {
-				_ = b.WriteByte(',')
+				_, _ = b.WriteString(UrlEncodedComma)
 			}
 			_, _ = b.WriteString((string)(id))
 		}

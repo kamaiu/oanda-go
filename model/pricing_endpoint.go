@@ -221,7 +221,7 @@ func (p *PricingRequest) AppendQuery(b *bytebufferpool.ByteBuffer) {
 	if len(p.Instruments) > 0 {
 		for i, instrument := range p.Instruments {
 			if i > 0 {
-				_ = b.WriteByte(',')
+				_, _ = b.WriteString(UrlEncodedComma)
 			}
 			_, _ = b.WriteString((string)(instrument))
 		}
@@ -506,4 +506,69 @@ type PricingCandlesResponse struct {
 	Granularity CandlestickGranularity `json:"granularity"`
 	// The list of candlesticks that satisfy the request.
 	Candles []*Candlestick `json:"candles"`
+}
+
+type PricingStreamRequest struct {
+	// List of Instruments to stream Prices for.
+	// [required]
+	Instruments []InstrumentName `json:"instruments"`
+	// Flag that enables/disables the sending of a pricing snapshot when
+	// initially connecting to the stream.
+	// [default=True]
+	Snapshot bool `json:"snapshot"`
+	// Flag that enables the inclusion of the homeConversions field in the
+	// returned response. An entry will be returned for each currency in
+	// the set of all base and quote currencies present in the requested
+	// instruments list.
+	// [default=False]
+	IncludeHomeConversions bool `json:"includeHomeConversions"`
+}
+
+func NewPricingStreamRequest(instruments ...InstrumentName) *PricingStreamRequest {
+	return &PricingStreamRequest{
+		Instruments:            instruments,
+		Snapshot:               true,
+		IncludeHomeConversions: false,
+	}
+}
+
+// List of Instruments to stream Prices for.
+// [required]
+func (p *PricingStreamRequest) WithInstruments(instruments ...InstrumentName) *PricingStreamRequest {
+	p.Instruments = instruments
+	return p
+}
+
+// Flag that enables/disables the sending of a pricing snapshot when
+// initially connecting to the stream.
+// [default=True]
+func (p *PricingStreamRequest) WithSnapshot(snapshot bool) *PricingStreamRequest {
+	p.Snapshot = snapshot
+	return p
+}
+
+// Flag that enables the inclusion of the homeConversions field in the
+// returned response. An entry will be returned for each currency in
+// the set of all base and quote currencies present in the requested
+// instruments list.
+// [default=False]
+func (p *PricingStreamRequest) WithIncludeHomeConversions(includeHomeConversions bool) *PricingStreamRequest {
+	p.IncludeHomeConversions = includeHomeConversions
+	return p
+}
+
+func (p *PricingStreamRequest) AppendQuery(url *bytebufferpool.ByteBuffer) {
+	_, _ = url.WriteString("snapshot=")
+	_, _ = url.WriteString(strconv.FormatBool(p.Snapshot))
+	_, _ = url.WriteString("&includeHomeConversions=")
+	_, _ = url.WriteString(strconv.FormatBool(p.IncludeHomeConversions))
+	if len(p.Instruments) > 0 {
+		_, _ = url.WriteString("&instruments=")
+		for i, instrument := range p.Instruments {
+			if i > 0 {
+				_, _ = url.WriteString(UrlEncodedComma)
+			}
+			_, _ = url.WriteString((string)(instrument))
+		}
+	}
 }

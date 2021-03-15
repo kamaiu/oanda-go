@@ -18,7 +18,7 @@ func (c *Connection) Transactions(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (c *Connection) Transaction(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions/")
 	_, _ = url.WriteString((string)(id))
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *Connection) TransactionsIDRange(
 	_, _ = url.WriteString("/transactions/")
 	_, _ = url.WriteString("idrange?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func (c *Connection) TransactionsSinceID(
 	_, _ = url.WriteString("/transactions/")
 	_, _ = url.WriteString("sinceid?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -89,19 +89,19 @@ func (c *Connection) TransactionsSinceID(
 }
 
 // TODO:
-// GET /v3/accounts/{accountID}/transactions/stream
-// Get a stream of Transactions for an Account starting from when the
+// GET /v3/accounts/{accountID}/transactions/Stream
+// Get a Stream of Transactions for an Account starting from when the
 // request is made.
 // Note: This endpoint is served by the streaming URLs.
 //
-// Response Body Schema (application/octet-stream)
+// Response Body Schema (application/octet-Stream)
 // The response body for the Transaction Stream uses chunked transfer encoding.
 // Each chunk contains Transaction and/or TransactionHeartbeat objects encoded
 // as JSON. Each JSON object is serialized into a single line of text, and multiple
 // objects found in the same chunk are separated by newlines.
 // TransactionHeartbeats are sent every 5 seconds.
 //
-// The specification for the objects found in response stream are as follows:
+// The specification for the objects found in response Stream are as follows:
 //
 //		Transaction
 //		TransactionHeartbeat

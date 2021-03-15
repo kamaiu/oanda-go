@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	. "github.com/kamaiu/oanda-go/model"
 	"github.com/valyala/bytebufferpool"
 	"github.com/valyala/fasthttp"
+	"net/http"
 	"strconv"
 	"time"
 	"unsafe"
@@ -30,38 +30,6 @@ func (s StatusCodeError) Error() string {
 	return "status code " + strconv.Itoa(s.Code)
 }
 
-type Headers struct {
-	contentType string
-	agent       string
-	DateFormat  AcceptDatetimeFormat
-	auth        string
-}
-
-var client = &fasthttp.Client{
-	Name:                          "",
-	NoDefaultUserAgentHeader:      true,
-	Dial:                          fasthttp.Dial,
-	DialDualStack:                 false,
-	TLSConfig:                     nil,
-	MaxConnsPerHost:               100,
-	MaxIdleConnDuration:           fasthttp.DefaultMaxIdleConnDuration,
-	MaxConnDuration:               0,
-	MaxIdemponentCallAttempts:     fasthttp.DefaultMaxIdemponentCallAttempts,
-	ReadBufferSize:                0,
-	WriteBufferSize:               0,
-	ReadTimeout:                   time.Second * 15,
-	WriteTimeout:                  time.Second * 15,
-	MaxResponseBodySize:           1024 * 1024 * 5,
-	DisableHeaderNamesNormalizing: false,
-	DisablePathNormalizing:        false,
-	MaxConnWaitTimeout:            time.Second * 5,
-	RetryIf:                       nil,
-}
-
-type urls struct {
-	accounts string
-}
-
 type Connection struct {
 	hostname       string
 	streamingHost  string
@@ -69,13 +37,14 @@ type Connection struct {
 	port           int
 	ssl            bool
 	token          string
+	auth           string
 	DatetimeFormat string
-	headers        Headers
-	client         *fasthttp.Client
-	urls           urls
+	agent          string
+	client         *fasthttp.HostClient
+	netClient      *http.Client
 }
 
-const OANDA_AGENT string = "v20-go/0.9.0"
+const DefaultUserAgent string = "oanda-go/0.9.0"
 
 func NewConnection(token string, live bool) *Connection {
 	hostname := ""
@@ -85,23 +54,15 @@ func NewConnection(token string, live bool) *Connection {
 		hostname = "https://api-fxtrade.oanda.com"
 		streamingHost = "https://stream-fxtrade.oanda.com"
 	} else {
-		hostname = "https://api-fxpractice.oanda.com/v3"
+		hostname = "https://api-fxpractice.oanda.com"
 		streamingHost = "https://stream-fxpractice.oanda.com"
 	}
 
-	var buffer bytes.Buffer
+	var auth bytes.Buffer
 	// Generate the auth header
-	buffer.WriteString("Bearer ")
-	buffer.WriteString(token)
+	auth.WriteString("Bearer ")
+	auth.WriteString(token)
 
-	authHeader := buffer.String()
-	// Create headers for oanda to be used in requests
-	headers := Headers{
-		contentType: "application/json",
-		agent:       OANDA_AGENT,
-		DateFormat:  "RFC3339",
-		auth:        authHeader,
-	}
 	// Create the Connection object
 	connection := &Connection{
 		hostname:      hostname,
@@ -110,11 +71,30 @@ func NewConnection(token string, live bool) *Connection {
 		port:          443,
 		ssl:           true,
 		token:         token,
-		headers:       headers,
-		client:        client,
-		urls: urls{
-			accounts: fmt.Sprintf("%s/accounts", hostname),
+		auth:          auth.String(),
+		agent:         DefaultUserAgent,
+		client: &fasthttp.HostClient{
+			Addr:                          hostname,
+			Name:                          "oanda",
+			NoDefaultUserAgentHeader:      true,
+			Dial:                          fasthttp.Dial,
+			DialDualStack:                 false,
+			IsTLS:                         true,
+			MaxConns:                      120,
+			MaxConnDuration:               0,
+			MaxIdleConnDuration:           time.Minute * 5,
+			MaxIdemponentCallAttempts:     fasthttp.DefaultMaxIdemponentCallAttempts,
+			ReadBufferSize:                1024 * 64,
+			WriteBufferSize:               1024 * 64,
+			ReadTimeout:                   time.Second * 15,
+			WriteTimeout:                  time.Second * 15,
+			MaxResponseBodySize:           fasthttp.DefaultMaxRequestBodySize,
+			DisableHeaderNamesNormalizing: false,
+			DisablePathNormalizing:        false,
+			MaxConnWaitTimeout:            time.Second * 5,
+			RetryIf:                       nil,
 		},
+		netClient: &http.Client{},
 	}
 	return connection
 }
@@ -138,11 +118,11 @@ func newCall(
 	ctx.req.SetRequestURIBytes(url.B)
 	bytebufferpool.Put(url)
 	if c != nil {
-		if len(c.headers.agent) > 0 {
-			ctx.req.Header.Set(fasthttp.HeaderUserAgent, c.headers.agent)
+		if len(c.agent) > 0 {
+			ctx.req.Header.Set(fasthttp.HeaderUserAgent, c.agent)
 		}
-		ctx.req.Header.Set(fasthttp.HeaderAuthorization, c.headers.auth)
-		ctx.req.Header.Set(fasthttp.HeaderContentType, c.headers.contentType)
+		ctx.req.Header.Set(fasthttp.HeaderAuthorization, c.auth)
+		ctx.req.Header.Set(fasthttp.HeaderContentType, "application/json")
 	}
 	ctx.req.Header.Set(fasthttp.HeaderAcceptEncoding, acceptEncoding)
 	// Set time format
@@ -166,11 +146,6 @@ func (c *call) complete(unmarshaller json.Unmarshaler) error {
 	body, err = readBody(c.resp)
 	err = unmarshaller.UnmarshalJSON(body)
 	return err
-}
-
-func (c *call) WithDateTime(format AcceptDatetimeFormat) *call {
-	c.req.Header.Set("Accept-Datetime-Format", (string)(format))
-	return c
 }
 
 func (c *call) release() {

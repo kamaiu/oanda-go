@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/kamaiu/oanda-go/endpoint"
 	"github.com/kamaiu/oanda-go/model"
+	"github.com/valyala/fasthttp"
 	"sync"
 )
 
@@ -26,6 +27,7 @@ func NewClient(token string, live bool) (*Client, error) {
 		accountsByID: make(map[model.AccountID]*Account),
 	}
 
+	// Load accounts
 	accounts, err := conn.Accounts()
 	if err != nil {
 		return nil, err
@@ -46,6 +48,7 @@ func NewClient(token string, live bool) (*Client, error) {
 		client.accounts = append(client.accounts, account)
 		client.accountsByID[props.ID] = account
 	}
+
 	return client, nil
 }
 
@@ -64,4 +67,14 @@ func newAccount(props *model.AccountProperties, details *model.Account) *Account
 		props:   props,
 		details: details,
 	}
+}
+
+type PricingStream struct {
+	client  *fasthttp.Client
+	account *Account
+}
+
+type TransactionStream struct {
+	client  *fasthttp.Client
+	account *Account
 }

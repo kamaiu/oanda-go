@@ -16,29 +16,32 @@ type PriceBucket struct {
 	Liquidity int64 `json:"liquidity"`
 }
 
-// The status of the Price.
-// DEPRECATED
-//type PriceStatus string
-//
-//const (
-//	// The Instrument’s price is tradeable.
-//	PriceStatusTradeable PriceStatus = "tradeable"
-//	// The Instrument’s price is not tradeable.
-//	PriceStatusNonTradeable PriceStatus = "non-tradeable"
-//	// The Instrument of the price is invalid or there is no valid Price for the Instrument.
-//	PriceStatusNonInvalid PriceStatus = "invalid"
-//)
-
+// The specification of an Account-specific Price.
 type ClientPrice struct {
-	Type       string         `json:"type"`
+	// The string “PRICE”. Used to identify the a Price object when found in a stream.
+	Type string `json:"type"`
+	// The Price’s Instrument.
 	Instrument InstrumentName `json:"instrument"`
-	Time       DateTime       `json:"time"`
-	//Status     PriceStatus          `json:"status"` // deprecated
-	Tradeable   bool          `json:"tradeable"`
-	Bids        []PriceBucket `json:"bids"`
-	Asks        []PriceBucket `json:"asks"`
-	CloseoutBid PriceValue    `json:"closeoutBid"`
-	CloseoutAsk PriceValue    `json:"closeoutAsk"`
+	// The date/time when the Price was created
+	Time DateTime `json:"time"`
+	// Flag indicating if the Price is tradeable or not
+	Tradeable bool `json:"tradeable"`
+	// The list of prices and liquidity available on the Instrument’s bid side.
+	// It is possible for this list to be empty if there is no bid liquidity
+	// currently available for the Instrument in the Account.
+	Bids []PriceBucket `json:"bids"`
+	// The list of prices and liquidity available on the Instrument’s ask side.
+	// It is possible for this list to be empty if there is no ask liquidity
+	// currently available for the Instrument in the Account.
+	Asks []PriceBucket `json:"asks"`
+	// The closeout bid Price. This Price is used when a bid is required to
+	// closeout a Position (margin closeout or manual) yet there is no bid
+	// liquidity. The closeout bid is never used to open a new position.
+	CloseoutBid PriceValue `json:"closeoutBid"`
+	// The closeout ask Price. This Price is used when a ask is required to
+	// closeout a Position (margin closeout or manual) yet there is no ask
+	// liquidity. The closeout ask is never used to open a new position.
+	CloseoutAsk PriceValue `json:"closeoutAsk"`
 }
 
 // QuoteHomeConversionFactors represents the factors that can be used used to convert
@@ -58,10 +61,10 @@ type QuoteHomeConversionFactors struct {
 
 // A PricingHeartbeat object is injected into the Pricing stream to ensure that the
 // HTTP connection remains active.
-type Heartbeat struct {
+type PricingHeartbeat struct {
 	// The string “HEARTBEAT”
 	Type string `json:"type"`
-	// The date/time when the Heartbeat was created.
+	// The date/time when the PricingHeartbeat was created.
 	Time DateTime `json:"time"`
 }
 

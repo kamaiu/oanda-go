@@ -21,7 +21,7 @@ func (c *Connection) Trades(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades?")
 	request.AppendQuery(url)
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +39,7 @@ func (c *Connection) TradesOpen(
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/openTrades")
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *Connection) Trade(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades/")
 	_, _ = url.WriteString((string)(specifier))
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func (c *Connection) TradeClose(
 	_, _ = url.WriteString("/trades/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/close")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	b := bytebufferpool.Get()
@@ -151,7 +151,7 @@ func (c *Connection) TradeClientExtensions(
 	_, _ = url.WriteString("/trades/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/clientExtensions")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}
@@ -219,7 +219,7 @@ func (c *Connection) TradeModify(
 	_, _ = url.WriteString("/trades/")
 	_, _ = url.WriteString((string)(specifier))
 	_, _ = url.WriteString("/orders")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}

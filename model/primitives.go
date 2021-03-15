@@ -40,14 +40,64 @@ func (d DateTime) UNIX() (time.Time, error) {
 	if len(d) == 0 {
 		return time.Time{}, nil
 	}
-	return time.Parse(time.RFC3339, (string)(d))
+	for i := 0; i < len(d); i++ {
+		c := d[i]
+		switch c {
+		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+		case '.':
+			secs, err := strconv.ParseInt((string)(d[0:i]), 10, 64)
+			if err != nil {
+				return time.Time{}, err
+			}
+			f := (string)(d[i+1:])
+			if len(f) == 0 {
+				return time.Unix(secs, 0), nil
+			}
+			nanos, err := strconv.ParseInt(f, 10, 64)
+			if err != nil {
+				return time.Time{}, err
+			}
+
+			switch len(f) {
+			case 1:
+				nanos *= 100000000
+			case 2:
+				nanos *= 10000000
+			case 3:
+				nanos *= 1000000
+			case 4:
+				nanos *= 100000
+			case 5:
+				nanos *= 10000
+			case 6:
+				nanos *= 1000
+			case 7:
+				nanos *= 100
+			case 8:
+				nanos *= 10
+			default:
+				if nanos > 1000000000 {
+					nanos = 1000000000
+				}
+			}
+			return time.Unix(secs, nanos), nil
+
+		default:
+			return time.Parse(time.RFC3339, (string)(d))
+		}
+	}
+	return time.Time{}, nil
 }
 
 func (d DateTime) RFC3339() (time.Time, error) {
 	if len(d) == 0 {
 		return time.Time{}, nil
 	}
-	return time.Parse(time.RFC3339, (string)(d))
+	t, err := time.Parse(time.RFC3339, (string)(d))
+	if err != nil {
+		t, err = time.Parse(time.RFC3339Nano, (string)(d))
+	}
+	return t, err
 }
 
 func (d DateTime) Parse() (time.Time, error) {
@@ -98,7 +148,11 @@ func (d DateTime) Parse() (time.Time, error) {
 			return time.Unix(secs, nanos), nil
 
 		default:
-			return time.Parse(time.RFC3339, (string)(d))
+			t, err := time.Parse(time.RFC3339, (string)(d))
+			if err != nil {
+				t, err = time.Parse(time.RFC3339Nano, (string)(d))
+			}
+			return t, err
 		}
 	}
 	secs, err := strconv.ParseInt((string)(d), 10, 64)

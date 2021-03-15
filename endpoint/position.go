@@ -19,7 +19,7 @@ func (c *Connection) Positions(
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/positions")
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (c *Connection) PositionsOpen(
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/openPositions")
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func (c *Connection) Position(
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/positions/")
 	_, _ = url.WriteString((string)(instrument))
-	_, err := doGET(c, url, c.headers.DateFormat, resp)
+	_, err := doGET(c, url, AcceptDatetimeFormat_RFC3339, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func (c *Connection) PositionClose(
 	_, _ = url.WriteString("/positions/")
 	_, _ = url.WriteString((string)(instrument))
 	_, _ = url.WriteString("/close")
-	ctx := newCall(c, fasthttp.MethodPut, url, c.headers.DateFormat)
+	ctx := newCall(c, fasthttp.MethodPut, url, AcceptDatetimeFormat_RFC3339)
 	defer ctx.release()
 
 	w := &jwriter.Writer{}

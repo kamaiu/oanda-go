@@ -1424,6 +1424,7 @@ type TransactionParser struct {
 	Id                            string                         `json:"id"`
 	Instrument                    InstrumentName                 `json:"instrument"`
 	IntendedReplacesOrderID       string                         `json:"intendedReplacesOrderID"`
+	LastTransactionID             TransactionID                  `json:"lastTransactionID"`
 	LongPositionCloseout          *MarketOrderPositionCloseout   `json:"longPositionCloseout"`
 	LossQuoteHomeConversionFactor DecimalNumber                  `json:"lossQuoteHomeConversionFactor"`
 	MarginCloseout                *MarketOrderMarginCloseout     `json:"marginCloseout"`
@@ -1471,6 +1472,7 @@ type TransactionParser struct {
 /*
 r := parser.Parse()
 switch v := r.(type) {
+case *TransactionHeartbeat:
 case *CreateTransaction:
 case *CloseTransaction:
 case *ReopenTransaction:
@@ -1513,6 +1515,12 @@ case *ResetResettablePLTransaction:
 */
 func (p *TransactionParser) Parse() interface{} {
 	switch p.Type {
+	case "HEARTBEAT":
+		return &TransactionHeartbeat{
+			Type:              p.Type,
+			Time:              p.Time,
+			LastTransactionID: p.LastTransactionID,
+		}
 	case "CREATE":
 		return &CreateTransaction{
 			Transaction: Transaction{
