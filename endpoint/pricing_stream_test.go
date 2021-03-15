@@ -8,14 +8,14 @@ import (
 )
 
 func TestPricingStream(t *testing.T) {
-	c := NewConnection(apiToken, true)
+	c := newPracticeConnection()
 	accounts, err := c.Accounts()
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	conn := PricingHandler{}
-	stream, err := c.StartPricingStream(accounts.Accounts[3].ID, NewPricingStreamRequest(
+	stream, err := c.StartPricingStream(accounts.Accounts[0].ID, NewPricingStreamRequest(
 		"EUR_USD", "USD_CAD", "USD_CHF",
 	), conn)
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 )
 
 func TestConnection_GetAccounts(t *testing.T) {
-	c := NewConnection(apiToken, true)
+	c := newPracticeConnection()
 	resp, err := c.Accounts()
 	if err != nil {
 		t.Fatal(err)

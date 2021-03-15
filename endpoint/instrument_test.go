@@ -10,7 +10,8 @@ import (
 )
 
 var (
-	apiToken = ""
+	apiToken         = ""
+	apiPracticeToken = ""
 )
 
 func init() {
@@ -21,7 +22,6 @@ func init() {
 	s := strings.TrimSpace(string(b))
 	lines := strings.Split(s, "\n")
 
-	tokenName := "OANDA_API_KEY"
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
 		index := strings.IndexByte(line, '=')
@@ -29,14 +29,24 @@ func init() {
 			continue
 		}
 		switch strings.TrimSpace(line[0:index]) {
-		case tokenName:
+		case "OANDA_API_KEY":
 			apiToken = strings.TrimSpace(line[index+1:])
+		case "OANDA_PRACTICE_API_KEY":
+			apiPracticeToken = strings.TrimSpace(line[index+1:])
 		}
 	}
 }
 
+func newLiveConnection() *Connection {
+	return NewConnection(apiToken, true)
+}
+
+func newPracticeConnection() *Connection {
+	return NewConnection(apiPracticeToken, false)
+}
+
 func TestConnection_InstrumentCandles(t *testing.T) {
-	c := NewConnection(apiToken, true)
+	c := newPracticeConnection()
 	resp, err := c.InstrumentCandles(
 		NewInstrumentCandlesRequest("EUR_USD", time.Now().Add(-(time.Hour * 760))).
 			WithGranularity(CandlestickGranularity_H1).
