@@ -17,7 +17,7 @@ func (c *Connection) CandlesLatest(
 	}
 	resp := &CandlesLatestResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/candles/latest?")
@@ -41,7 +41,7 @@ func (c *Connection) Pricing(
 	}
 	resp := &PricingResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/pricing?")
@@ -66,7 +66,7 @@ func (c *Connection) PricingCandles(
 	}
 	resp := &PricingCandlesResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/instruments/")

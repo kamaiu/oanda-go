@@ -43,7 +43,7 @@ func (c *Connection) StartPricingStream(
 		return nil, ErrInstrumentsRequired
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.streamingHost)
+	_, _ = url.WriteString(c.hostStreaming)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/pricing/stream?")

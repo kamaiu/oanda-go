@@ -35,7 +35,7 @@ func (c *Connection) doStream(
 	req.Header.Set("Accept-Datetime-Format", (string)(model.AcceptDatetimeFormat_RFC3339))
 	//req.Header.Set(fasthttp.HeaderContentType, "application/octet-stream")
 
-	resp, err := c.netClient.Do(req)
+	resp, err := c.streamClient.Do(req)
 	if err != nil {
 		return nil, err
 	}

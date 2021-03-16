@@ -13,7 +13,7 @@ func (c *Connection) Transactions(
 ) (*TransactionsPagesResponse, error) {
 	resp := &TransactionsPagesResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions?")
@@ -33,7 +33,7 @@ func (c *Connection) Transaction(
 ) (*TransactionResponse, error) {
 	resp := &TransactionResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions/")
@@ -53,7 +53,7 @@ func (c *Connection) TransactionsIDRange(
 ) (*TransactionsResponse, error) {
 	resp := &TransactionsResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions/")
@@ -75,7 +75,7 @@ func (c *Connection) TransactionsSinceID(
 ) (*TransactionsResponse, error) {
 	resp := &TransactionsResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions/")

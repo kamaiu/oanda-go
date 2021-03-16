@@ -1,12 +1,12 @@
 package endpoint
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
 	. "github.com/kamaiu/oanda-go/model"
 	"github.com/valyala/bytebufferpool"
 	"github.com/valyala/fasthttp"
+	"net"
 	"net/http"
 	"strconv"
 	"time"
@@ -31,50 +31,43 @@ func (s StatusCodeError) Error() string {
 }
 
 type Connection struct {
-	hostname       string
-	streamingHost  string
-	hostnameBytes  []byte
+	host           string
+	hostStreaming  string
 	port           int
 	ssl            bool
 	token          string
 	auth           string
 	DatetimeFormat string
 	agent          string
-	client         *fasthttp.HostClient
-	netClient      *http.Client
+	restClient     *fasthttp.HostClient
+	streamClient   *http.Client
 }
 
 const DefaultUserAgent string = "oanda-go/0.9.0"
 
 func NewConnection(token string, live bool) *Connection {
-	hostname := ""
-	streamingHost := ""
-	// should we use the live API?
+	host := ""
+	hostStreaming := ""
 	if live {
-		hostname = "https://api-fxtrade.oanda.com"
-		streamingHost = "https://stream-fxtrade.oanda.com"
+		host = "https://api-fxtrade.oanda.com"
+		hostStreaming = "https://stream-fxtrade.oanda.com"
 	} else {
-		hostname = "https://api-fxpractice.oanda.com"
-		streamingHost = "https://stream-fxpractice.oanda.com"
+		host = "https://api-fxpractice.oanda.com"
+		hostStreaming = "https://stream-fxpractice.oanda.com"
 	}
-
-	var auth bytes.Buffer
-	// Generate the auth header
-	auth.WriteString("Bearer ")
-	auth.WriteString(token)
 
 	// Create the Connection object
 	connection := &Connection{
-		hostname:      hostname,
-		hostnameBytes: []byte(hostname),
-		streamingHost: streamingHost,
+		host:          host,
+		hostStreaming: hostStreaming,
 		port:          443,
 		ssl:           true,
 		token:         token,
-		auth:          auth.String(),
+		auth:          "Bearer " + token,
 		agent:         DefaultUserAgent,
-		client: &fasthttp.HostClient{
-			Addr:                          hostname,
+		// HTTP client used for REST endpoints
+		restClient: &fasthttp.HostClient{
+			Addr:                          host,
 			Name:                          "oanda",
 			NoDefaultUserAgentHeader:      true,
 			Dial:                          fasthttp.Dial,
@@ -94,7 +87,22 @@ func NewConnection(token string, live bool) *Connection {
 			MaxConnWaitTimeout:            time.Second * 5,
 			RetryIf:                       nil,
 		},
-		netClient: &http.Client{},
+		// HTTP client used for streaming endpoints
+		// - Transactions
+		// - Pricing
+		streamClient: &http.Client{
+			Transport: &http.Transport{
+				DialContext: (&net.Dialer{
+					Timeout:   30 * time.Second,
+					KeepAlive: 30 * time.Second,
+				}).DialContext,
+				ForceAttemptHTTP2:     false,
+				MaxIdleConns:          20,
+				IdleConnTimeout:       90 * time.Second,
+				TLSHandshakeTimeout:   10 * time.Second,
+				ExpectContinueTimeout: 1 * time.Second,
+			},
+		},
 	}
 	return connection
 }
@@ -105,7 +113,7 @@ type call struct {
 }
 
 func newCall(
-	c *Connection,
+	conn *Connection,
 	method string,
 	url *bytebufferpool.ByteBuffer,
 	timeFormat AcceptDatetimeFormat,
@@ -116,14 +124,16 @@ func newCall(
 	}
 	ctx.req.Header.SetMethod(method)
 	ctx.req.SetRequestURIBytes(url.B)
+	// Release url buffer
 	bytebufferpool.Put(url)
-	if c != nil {
-		if len(c.agent) > 0 {
-			ctx.req.Header.Set(fasthttp.HeaderUserAgent, c.agent)
+	if conn != nil {
+		if len(conn.agent) > 0 {
+			ctx.req.Header.Set(fasthttp.HeaderUserAgent, conn.agent)
 		}
-		ctx.req.Header.Set(fasthttp.HeaderAuthorization, c.auth)
-		ctx.req.Header.Set(fasthttp.HeaderContentType, "application/json")
+		ctx.req.Header.Set(fasthttp.HeaderAuthorization, conn.auth)
 	}
+
+	ctx.req.Header.Set(fasthttp.HeaderContentType, "application/json")
 	ctx.req.Header.Set(fasthttp.HeaderAcceptEncoding, acceptEncoding)
 	// Set time format
 	if len(timeFormat) > 0 {
@@ -177,13 +187,11 @@ func doGET(
 	return statusCode, err
 }
 
-func readBody(r *fasthttp.Response) ([]byte, error) {
+func readBody(r *fasthttp.Response) (body []byte, err error) {
 	if r == nil {
 		return nil, nil
 	}
 	encoding := r.Header.Peek(fasthttp.HeaderContentEncoding)
-	var body []byte
-	var err error
 	if len(encoding) > 0 {
 		switch *(*string)(unsafe.Pointer(&encoding)) {
 		case "deflate":

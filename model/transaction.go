@@ -5,6 +5,11 @@ package model
 // String representation of the numerical OANDA-assigned TransactionID
 type TransactionID string
 
+type TransactionMessage interface {
+	Message
+	Get() *Transaction
+}
+
 // The base Transaction specification. Specifies properties that are common between
 // all Transaction.
 type Transaction struct {
@@ -21,6 +26,10 @@ type Transaction struct {
 	BatchID TransactionID `json:"batchID"`
 	// The Request ID of the request which generated the transaction.
 	RequestID RequestID `json:"requestID"`
+}
+
+func (t *Transaction) Get() *Transaction {
+	return t
 }
 
 // A CreateTransaction represents the creation of an Account.
@@ -1468,6 +1477,17 @@ type TransactionParser struct {
 	UserID                        int64                          `json:"userID"`
 }
 
+func (p *TransactionParser) Get() *Transaction {
+	return &Transaction{
+		Id:        TransactionID(p.Id),
+		Time:      p.Time,
+		UserID:    p.UserID,
+		AccountID: AccountID(p.AccountID),
+		BatchID:   TransactionID(p.BatchID),
+		RequestID: RequestID(p.RequestID),
+	}
+}
+
 // Example
 /*
 r := parser.Parse()
@@ -1513,14 +1533,8 @@ case *DividendAdjustmentTransaction:
 case *ResetResettablePLTransaction:
 }
 */
-func (p *TransactionParser) Parse() interface{} {
+func (p *TransactionParser) Parse() TransactionMessage {
 	switch p.Type {
-	case "HEARTBEAT":
-		return &TransactionHeartbeat{
-			Type:              p.Type,
-			Time:              p.Time,
-			LastTransactionID: p.LastTransactionID,
-		}
 	case "CREATE":
 		return &CreateTransaction{
 			Transaction: Transaction{

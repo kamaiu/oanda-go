@@ -15,7 +15,7 @@ func (c *Connection) Positions(
 ) (*PositionsResponse, error) {
 	resp := &PositionsResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/positions")
@@ -34,7 +34,7 @@ func (c *Connection) PositionsOpen(
 ) (*PositionsResponse, error) {
 	resp := &PositionsResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/openPositions")
@@ -54,7 +54,7 @@ func (c *Connection) Position(
 ) (*PositionResponse, error) {
 	resp := &PositionResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/positions/")
@@ -77,7 +77,7 @@ func (c *Connection) PositionClose(
 		return nil, nil, ErrNilRequest
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/positions/")

@@ -17,7 +17,7 @@ func (c *Connection) InstrumentCandles(
 	}
 	resp := &CandlestickResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(request.Instrument))
 	_, _ = url.WriteString("/candles?")
@@ -46,7 +46,7 @@ func (c *Connection) InstrumentOrderBook(
 	}
 	resp := &OrderBookResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(instrument))
 	_, _ = url.WriteString("/orderBook?time=")
@@ -75,7 +75,7 @@ func (c *Connection) InstrumentPositionBook(
 	}
 	resp := &PositionBookResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/instruments/")
 	_, _ = url.WriteString((string)(instrument))
 	_, _ = url.WriteString("/positionBook?time=")

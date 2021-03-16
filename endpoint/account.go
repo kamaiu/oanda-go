@@ -12,7 +12,7 @@ import (
 func (c *Connection) Accounts() (*AccountsResponse, error) {
 	// Build URL
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts")
 
 	resp := &AccountsResponse{}
@@ -26,7 +26,7 @@ func (c *Connection) Accounts() (*AccountsResponse, error) {
 // Get a list of all Accounts authorized for the provided token.
 func (c *Connection) Account(id AccountID) (*Account, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	resp := &AccountResponse{}
@@ -40,7 +40,7 @@ func (c *Connection) Account(id AccountID) (*Account, error) {
 // Get a summary for a single Account that a client has access to.
 func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/summary")
@@ -57,7 +57,7 @@ func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, erro
 // thus should be the same for all Accounts owned by a single user.
 func (c *Connection) AccountInstruments(id AccountID, filter []string) (*AccountInstrumentsResponse, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	if len(filter) > 0 {
@@ -86,7 +86,7 @@ func (c *Connection) AccountConfigure(
 	config *AccountConfigurationRequest,
 ) (*AccountConfigurationResponse, *AccountConfigurationError, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/v3/configuration")
@@ -138,7 +138,7 @@ func (c *Connection) AccountConfigure(
 //Endpoint used to poll an Account for its current state and changes since a specified TransactionID.
 func (c *Connection) AccountChanges(id AccountID, sinceTransactionID TransactionID) (*AccountChangesResponse, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(id))
 	_, _ = url.WriteString("/changes?sinceTransactionID=")

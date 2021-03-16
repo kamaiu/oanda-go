@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/kamaiu/oanda-go/endpoint"
 	"github.com/kamaiu/oanda-go/model"
-	"github.com/valyala/fasthttp"
 	"sync"
 )
 
@@ -14,8 +13,7 @@ type Client struct {
 	conn         *endpoint.Connection
 	accounts     []*Account
 	accountsByID map[model.AccountID]*Account
-
-	mu sync.RWMutex
+	mu           sync.RWMutex
 }
 
 func NewClient(token string, live bool) (*Client, error) {
@@ -50,31 +48,4 @@ func NewClient(token string, live bool) (*Client, error) {
 	}
 
 	return client, nil
-}
-
-type Pricing struct {
-}
-
-type Account struct {
-	props   *model.AccountProperties
-	details *model.Account
-	err     error
-	mu      sync.RWMutex
-}
-
-func newAccount(props *model.AccountProperties, details *model.Account) *Account {
-	return &Account{
-		props:   props,
-		details: details,
-	}
-}
-
-type PricingStream struct {
-	client  *fasthttp.Client
-	account *Account
-}
-
-type TransactionStream struct {
-	client  *fasthttp.Client
-	account *Account
 }

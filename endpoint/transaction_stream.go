@@ -49,7 +49,7 @@ type TxStreamHandler interface {
 		case *ResetResettablePLTransaction:
 		}
 	*/
-	OnMessage(msg interface{}) error
+	OnMessage(msg TransactionMessage) error
 
 	OnHeartbeat(time DateTime, last TransactionID) error
 
@@ -68,7 +68,7 @@ func (c *Connection) StartTransactionStream(
 		return nil, ErrNilRequest
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.streamingHost)
+	_, _ = url.WriteString(c.hostStreaming)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/transactions/stream")

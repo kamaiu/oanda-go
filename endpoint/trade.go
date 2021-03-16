@@ -16,7 +16,7 @@ func (c *Connection) Trades(
 	}
 	resp := &TradesResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades?")
@@ -35,7 +35,7 @@ func (c *Connection) TradesOpen(
 ) (*TradesResponse, error) {
 	resp := &TradesResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/openTrades")
@@ -54,7 +54,7 @@ func (c *Connection) Trade(
 ) (*TradeResponse, error) {
 	resp := &TradeResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades/")
@@ -78,7 +78,7 @@ func (c *Connection) TradeClose(
 	}
 
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades/")
@@ -145,7 +145,7 @@ func (c *Connection) TradeClientExtensions(
 		return nil, nil, ErrNilRequest
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades/")
@@ -213,7 +213,7 @@ func (c *Connection) TradeModify(
 		return nil, nil, ErrNilRequest
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/trades/")

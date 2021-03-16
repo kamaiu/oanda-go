@@ -41,7 +41,7 @@ func (c *Connection) OrderCreate(
 	w.RawByte('}')
 
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders")
@@ -101,7 +101,7 @@ func (c *Connection) Orders(
 	}
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders?")
@@ -120,7 +120,7 @@ func (c *Connection) OrdersPending(
 ) (*OrdersResponse, error) {
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/pendingOrders")
@@ -139,7 +139,7 @@ func (c *Connection) OrdersBySpecifier(
 ) (*OrdersResponse, error) {
 	resp := &OrdersResponse{}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
@@ -186,7 +186,7 @@ func (c *Connection) OrderReplace(
 	w.RawByte('}')
 
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
@@ -244,7 +244,7 @@ func (c *Connection) OrderCancel(
 	specifier OrderSpecifier,
 ) (*CancelOrderResponse, *CancelOrderError, error) {
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
@@ -303,7 +303,7 @@ func (c *Connection) OrderClientExtensions(
 		return nil, nil, ErrNilRequest
 	}
 	url := bytebufferpool.Get()
-	_, _ = url.WriteString(c.hostname)
+	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
 	_, _ = url.WriteString((string)(accountID))
 	_, _ = url.WriteString("/orders/")
