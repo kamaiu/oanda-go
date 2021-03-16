@@ -33,16 +33,18 @@ func (c *Connection) doStream(
 	req.Header.Set(fasthttp.HeaderAuthorization, c.auth)
 	req.Header.Set(fasthttp.HeaderContentType, "application/json")
 	req.Header.Set("Accept-Datetime-Format", (string)(model.AcceptDatetimeFormat_RFC3339))
-	//req.Header.Set(fasthttp.HeaderContentType, "application/octet-stream")
 
+	// Send request
 	resp, err := c.streamClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
+	// OK?
 	if resp.StatusCode != http.StatusOK {
 		return nil, StatusCodeError{Code: resp.StatusCode}
 	}
 
+	// Read the response stream (chunked) on a new goroutine
 	ctx, cancel := context.WithCancel(context.Background())
 	s := &Stream{
 		started: time.Now(),
@@ -138,17 +140,17 @@ func (s *Stream) run() {
 }
 
 type streamReader struct {
-	rd io.Reader
-	b  []byte
-	l  int
+	r io.Reader
+	b []byte
+	l int
 }
 
 func newStreamReader(rd io.Reader) *streamReader {
 	b := make([]byte, 1024)
 	return &streamReader{
-		rd: rd,
-		b:  b,
-		l:  0,
+		r: rd,
+		b: b,
+		l: 0,
 	}
 }
 
@@ -166,7 +168,7 @@ func (lr *streamReader) next(frames [][]byte) ([][]byte, error) {
 		}
 
 		// Read more bytes
-		n, err := lr.rd.Read(lr.b[lr.l:])
+		n, err := lr.r.Read(lr.b[lr.l:])
 
 		count := 0
 		// Process more?
@@ -206,6 +208,7 @@ func (lr *streamReader) next(frames [][]byte) ([][]byte, error) {
 	}
 }
 
+// Trim ' ' and '\t' from start and end
 func jsonObjectTrim(b []byte) []byte {
 	if len(b) < 2 {
 		return b

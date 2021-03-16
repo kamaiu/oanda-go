@@ -322,7 +322,7 @@ func easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *G
 		case "premium":
 			out.Premium = DecimalNumber(in.String())
 		case "levelRestriction":
-			easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel4(in, &out.LevelRestriction)
+			(out.LevelRestriction).UnmarshalEasyJSON(in)
 		default:
 			in.SkipRecursive()
 		}
@@ -350,7 +350,7 @@ func easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 	{
 		const prefix string = ",\"levelRestriction\":"
 		out.RawString(prefix)
-		easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel4(out, in.LevelRestriction)
+		(in.LevelRestriction).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -378,56 +378,7 @@ func (v *GuaranteedStopLossOrderEntryData) UnmarshalJSON(data []byte) error {
 func (v *GuaranteedStopLossOrderEntryData) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel3(l, v)
 }
-func easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel4(in *jlexer.Lexer, out *GuaranteedStopLossOrderLevelRestriction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "volume":
-			out.Volume = DecimalNumber(in.String())
-		case "priceRange":
-			out.PriceRange = DecimalNumber(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel4(out *jwriter.Writer, in GuaranteedStopLossOrderLevelRestriction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"volume\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Volume))
-	}
-	{
-		const prefix string = ",\"priceRange\":"
-		out.RawString(prefix)
-		out.String(string(in.PriceRange))
-	}
-	out.RawByte('}')
-}
-func easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel5(in *jlexer.Lexer, out *DynamicOrderState) {
+func easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel4(in *jlexer.Lexer, out *DynamicOrderState) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -464,7 +415,7 @@ func easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel5(in *jlexer.Lexer, out *D
 		in.Consumed()
 	}
 }
-func easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel5(out *jwriter.Writer, in DynamicOrderState) {
+func easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel4(out *jwriter.Writer, in DynamicOrderState) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -494,23 +445,23 @@ func easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel5(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v DynamicOrderState) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel5(&w, v)
+	easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel4(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v DynamicOrderState) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel5(w, v)
+	easyjsonEb9252a4EncodeGithubComKamaiuOandaGoModel4(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *DynamicOrderState) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel5(&r, v)
+	easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel4(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *DynamicOrderState) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel5(l, v)
+	easyjsonEb9252a4DecodeGithubComKamaiuOandaGoModel4(l, v)
 }

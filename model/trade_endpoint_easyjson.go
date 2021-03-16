@@ -372,7 +372,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TakeProfitOrderCancelTransaction == nil {
 					out.TakeProfitOrderCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.TakeProfitOrderCancelTransaction)
+				(*out.TakeProfitOrderCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrderTransaction":
 			if in.IsNull() {
@@ -382,7 +382,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TakeProfitOrderTransaction == nil {
 					out.TakeProfitOrderTransaction = new(TakeProfitOrderTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel5(in, out.TakeProfitOrderTransaction)
+				(*out.TakeProfitOrderTransaction).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrderFillTransaction":
 			if in.IsNull() {
@@ -392,7 +392,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TakeProfitOrderFillTransaction == nil {
 					out.TakeProfitOrderFillTransaction = new(OrderFillTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(in, out.TakeProfitOrderFillTransaction)
+				(*out.TakeProfitOrderFillTransaction).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrderCreatedCancelTransaction":
 			if in.IsNull() {
@@ -402,7 +402,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TakeProfitOrderCreatedCancelTransaction == nil {
 					out.TakeProfitOrderCreatedCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.TakeProfitOrderCreatedCancelTransaction)
+				(*out.TakeProfitOrderCreatedCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderCancelTransaction":
 			if in.IsNull() {
@@ -412,7 +412,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.StopLossOrderCancelTransaction == nil {
 					out.StopLossOrderCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.StopLossOrderCancelTransaction)
+				(*out.StopLossOrderCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderTransaction":
 			if in.IsNull() {
@@ -422,7 +422,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.StopLossOrderTransaction == nil {
 					out.StopLossOrderTransaction = new(StopLossOrderTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel7(in, out.StopLossOrderTransaction)
+				(*out.StopLossOrderTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderFillTransaction":
 			if in.IsNull() {
@@ -432,7 +432,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.StopLossOrderFillTransaction == nil {
 					out.StopLossOrderFillTransaction = new(OrderFillTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(in, out.StopLossOrderFillTransaction)
+				(*out.StopLossOrderFillTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderCreatedCancelTransaction":
 			if in.IsNull() {
@@ -442,7 +442,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.StopLossOrderCreatedCancelTransaction == nil {
 					out.StopLossOrderCreatedCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.StopLossOrderCreatedCancelTransaction)
+				(*out.StopLossOrderCreatedCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "trailingStopLossOrderCancelTransaction":
 			if in.IsNull() {
@@ -452,7 +452,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TrailingStopLossOrderCancelTransaction == nil {
 					out.TrailingStopLossOrderCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.TrailingStopLossOrderCancelTransaction)
+				(*out.TrailingStopLossOrderCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "trailingStopLossOrderTransaction":
 			if in.IsNull() {
@@ -462,7 +462,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.TrailingStopLossOrderTransaction == nil {
 					out.TrailingStopLossOrderTransaction = new(TrailingStopLossOrderTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel8(in, out.TrailingStopLossOrderTransaction)
+				(*out.TrailingStopLossOrderTransaction).UnmarshalEasyJSON(in)
 			}
 		case "guaranteedStopLossOrderCancelTransaction":
 			if in.IsNull() {
@@ -472,7 +472,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.GuaranteedStopLossOrderCancelTransaction == nil {
 					out.GuaranteedStopLossOrderCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.GuaranteedStopLossOrderCancelTransaction)
+				(*out.GuaranteedStopLossOrderCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "guaranteedStopLossOrderTransaction":
 			if in.IsNull() {
@@ -482,7 +482,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *T
 				if out.GuaranteedStopLossOrderTransaction == nil {
 					out.GuaranteedStopLossOrderTransaction = new(GuaranteedStopLossOrderTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel9(in, out.GuaranteedStopLossOrderTransaction)
+				(*out.GuaranteedStopLossOrderTransaction).UnmarshalEasyJSON(in)
 			}
 		case "relatedTransactionIDs":
 			if in.IsNull() {
@@ -529,7 +529,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TakeProfitOrderCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.TakeProfitOrderCancelTransaction)
+			(*in.TakeProfitOrderCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -538,7 +538,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TakeProfitOrderTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel5(out, *in.TakeProfitOrderTransaction)
+			(*in.TakeProfitOrderTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -547,7 +547,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TakeProfitOrderFillTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(out, *in.TakeProfitOrderFillTransaction)
+			(*in.TakeProfitOrderFillTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -556,7 +556,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TakeProfitOrderCreatedCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.TakeProfitOrderCreatedCancelTransaction)
+			(*in.TakeProfitOrderCreatedCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -565,7 +565,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.StopLossOrderCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.StopLossOrderCancelTransaction)
+			(*in.StopLossOrderCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -574,7 +574,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.StopLossOrderTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel7(out, *in.StopLossOrderTransaction)
+			(*in.StopLossOrderTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -583,7 +583,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.StopLossOrderFillTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(out, *in.StopLossOrderFillTransaction)
+			(*in.StopLossOrderFillTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -592,7 +592,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.StopLossOrderCreatedCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.StopLossOrderCreatedCancelTransaction)
+			(*in.StopLossOrderCreatedCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -601,7 +601,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TrailingStopLossOrderCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.TrailingStopLossOrderCancelTransaction)
+			(*in.TrailingStopLossOrderCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -610,7 +610,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.TrailingStopLossOrderTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel8(out, *in.TrailingStopLossOrderTransaction)
+			(*in.TrailingStopLossOrderTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -619,7 +619,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.GuaranteedStopLossOrderCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.GuaranteedStopLossOrderCancelTransaction)
+			(*in.GuaranteedStopLossOrderCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -628,7 +628,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 		if in.GuaranteedStopLossOrderTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel9(out, *in.GuaranteedStopLossOrderTransaction)
+			(*in.GuaranteedStopLossOrderTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -678,1449 +678,7 @@ func (v *TradeModifyResponse) UnmarshalJSON(data []byte) error {
 func (v *TradeModifyResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel3(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel9(in *jlexer.Lexer, out *GuaranteedStopLossOrderTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "guaranteedExecutionPremium":
-			out.GuaranteedExecutionPremium = DecimalNumber(in.String())
-		case "reason":
-			out.Reason = GuaranteedStopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "replacesOrderID":
-			out.ReplacesOrderID = OrderID(in.String())
-		case "cancellingTransactionID":
-			out.CancellingTransactionID = TransactionID(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel9(out *jwriter.Writer, in GuaranteedStopLossOrderTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"guaranteedExecutionPremium\":"
-		out.RawString(prefix)
-		out.String(string(in.GuaranteedExecutionPremium))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"replacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"cancellingTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.CancellingTransactionID))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in *jlexer.Lexer, out *ClientExtensions) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "id":
-			out.ID = ClientID(in.String())
-		case "tag":
-			out.Tag = ClientTag(in.String())
-		case "comment":
-			out.Comment = ClientComment(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out *jwriter.Writer, in ClientExtensions) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.ID))
-	}
-	{
-		const prefix string = ",\"tag\":"
-		out.RawString(prefix)
-		out.String(string(in.Tag))
-	}
-	{
-		const prefix string = ",\"comment\":"
-		out.RawString(prefix)
-		out.String(string(in.Comment))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel8(in *jlexer.Lexer, out *TrailingStopLossOrderTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "reason":
-			out.Reason = TrailingStopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "replacesOrderID":
-			out.ReplacesOrderID = OrderID(in.String())
-		case "cancellingTransactionID":
-			out.CancellingTransactionID = TransactionID(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel8(out *jwriter.Writer, in TrailingStopLossOrderTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"replacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"cancellingTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.CancellingTransactionID))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel7(in *jlexer.Lexer, out *StopLossOrderTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "guaranteed":
-			out.Guaranteed = bool(in.Bool())
-		case "guaranteedExecutionPremium":
-			out.GuaranteedExecutionPremium = DecimalNumber(in.String())
-		case "reason":
-			out.Reason = StopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "replacesOrderID":
-			out.ReplacesOrderID = OrderID(in.String())
-		case "cancellingTransactionID":
-			out.CancellingTransactionID = TransactionID(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel7(out *jwriter.Writer, in StopLossOrderTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"guaranteed\":"
-		out.RawString(prefix)
-		out.Bool(bool(in.Guaranteed))
-	}
-	{
-		const prefix string = ",\"guaranteedExecutionPremium\":"
-		out.RawString(prefix)
-		out.String(string(in.GuaranteedExecutionPremium))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"replacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"cancellingTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.CancellingTransactionID))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(in *jlexer.Lexer, out *OrderFillTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "orderID":
-			out.OrderID = OrderID(in.String())
-		case "clientOrderID":
-			out.ClientOrderID = ClientID(in.String())
-		case "instrument":
-			out.Instrument = InstrumentName(in.String())
-		case "units":
-			out.Units = DecimalNumber(in.String())
-		case "gainQuoteHomeConversionFactor":
-			out.GainQuoteHomeConversionFactor = DecimalNumber(in.String())
-		case "lossQuoteHomeConversionFactor":
-			out.LossQuoteHomeConversionFactor = DecimalNumber(in.String())
-		case "homeConversionFactors":
-			if in.IsNull() {
-				in.Skip()
-				out.HomeConversionFactors = nil
-			} else {
-				if out.HomeConversionFactors == nil {
-					out.HomeConversionFactors = new(HomeConversionFactors)
-				}
-				(*out.HomeConversionFactors).UnmarshalEasyJSON(in)
-			}
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "fullVWAP":
-			out.FullVWAP = PriceValue(in.String())
-		case "fullPrice":
-			(out.FullPrice).UnmarshalEasyJSON(in)
-		case "reason":
-			out.Reason = OrderFillReason(in.String())
-		case "pl":
-			out.Pl = AccountUnits(in.String())
-		case "quotePL":
-			out.QuotePL = DecimalNumber(in.String())
-		case "financing":
-			out.Financing = AccountUnits(in.String())
-		case "baseFinancing":
-			out.BaseFinancing = DecimalNumber(in.String())
-		case "quoteFinancing":
-			out.QuoteFinancing = DecimalNumber(in.String())
-		case "commission":
-			out.Commission = AccountUnits(in.String())
-		case "guaranteedExecutionFee":
-			out.GuaranteedExecutionFee = AccountUnits(in.String())
-		case "quoteGuaranteedExecutionFee":
-			out.QuoteGuaranteedExecutionFee = DecimalNumber(in.String())
-		case "accountBalance":
-			out.AccountBalance = AccountUnits(in.String())
-		case "tradeOpened":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeOpened = nil
-			} else {
-				if out.TradeOpened == nil {
-					out.TradeOpened = new(TradeOpen)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel11(in, out.TradeOpened)
-			}
-		case "tradesClosed":
-			if in.IsNull() {
-				in.Skip()
-				out.TradesClosed = nil
-			} else {
-				in.Delim('[')
-				if out.TradesClosed == nil {
-					if !in.IsDelim(']') {
-						out.TradesClosed = make([]*TradeReduce, 0, 8)
-					} else {
-						out.TradesClosed = []*TradeReduce{}
-					}
-				} else {
-					out.TradesClosed = (out.TradesClosed)[:0]
-				}
-				for !in.IsDelim(']') {
-					var v10 *TradeReduce
-					if in.IsNull() {
-						in.Skip()
-						v10 = nil
-					} else {
-						if v10 == nil {
-							v10 = new(TradeReduce)
-						}
-						easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel12(in, v10)
-					}
-					out.TradesClosed = append(out.TradesClosed, v10)
-					in.WantComma()
-				}
-				in.Delim(']')
-			}
-		case "tradeReduced":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeReduced = nil
-			} else {
-				if out.TradeReduced == nil {
-					out.TradeReduced = new(TradeReduce)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel12(in, out.TradeReduced)
-			}
-		case "halfSpreadCost":
-			out.HalfSpreadCost = AccountUnits(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(out *jwriter.Writer, in OrderFillTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"orderID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderID))
-	}
-	{
-		const prefix string = ",\"clientOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientOrderID))
-	}
-	{
-		const prefix string = ",\"instrument\":"
-		out.RawString(prefix)
-		out.String(string(in.Instrument))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	{
-		const prefix string = ",\"gainQuoteHomeConversionFactor\":"
-		out.RawString(prefix)
-		out.String(string(in.GainQuoteHomeConversionFactor))
-	}
-	{
-		const prefix string = ",\"lossQuoteHomeConversionFactor\":"
-		out.RawString(prefix)
-		out.String(string(in.LossQuoteHomeConversionFactor))
-	}
-	{
-		const prefix string = ",\"homeConversionFactors\":"
-		out.RawString(prefix)
-		if in.HomeConversionFactors == nil {
-			out.RawString("null")
-		} else {
-			(*in.HomeConversionFactors).MarshalEasyJSON(out)
-		}
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"fullVWAP\":"
-		out.RawString(prefix)
-		out.String(string(in.FullVWAP))
-	}
-	{
-		const prefix string = ",\"fullPrice\":"
-		out.RawString(prefix)
-		(in.FullPrice).MarshalEasyJSON(out)
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"pl\":"
-		out.RawString(prefix)
-		out.String(string(in.Pl))
-	}
-	{
-		const prefix string = ",\"quotePL\":"
-		out.RawString(prefix)
-		out.String(string(in.QuotePL))
-	}
-	{
-		const prefix string = ",\"financing\":"
-		out.RawString(prefix)
-		out.String(string(in.Financing))
-	}
-	{
-		const prefix string = ",\"baseFinancing\":"
-		out.RawString(prefix)
-		out.String(string(in.BaseFinancing))
-	}
-	{
-		const prefix string = ",\"quoteFinancing\":"
-		out.RawString(prefix)
-		out.String(string(in.QuoteFinancing))
-	}
-	{
-		const prefix string = ",\"commission\":"
-		out.RawString(prefix)
-		out.String(string(in.Commission))
-	}
-	{
-		const prefix string = ",\"guaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.GuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"quoteGuaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.QuoteGuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"accountBalance\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountBalance))
-	}
-	{
-		const prefix string = ",\"tradeOpened\":"
-		out.RawString(prefix)
-		if in.TradeOpened == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel11(out, *in.TradeOpened)
-		}
-	}
-	{
-		const prefix string = ",\"tradesClosed\":"
-		out.RawString(prefix)
-		if in.TradesClosed == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
-			out.RawString("null")
-		} else {
-			out.RawByte('[')
-			for v11, v12 := range in.TradesClosed {
-				if v11 > 0 {
-					out.RawByte(',')
-				}
-				if v12 == nil {
-					out.RawString("null")
-				} else {
-					easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel12(out, *v12)
-				}
-			}
-			out.RawByte(']')
-		}
-	}
-	{
-		const prefix string = ",\"tradeReduced\":"
-		out.RawString(prefix)
-		if in.TradeReduced == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel12(out, *in.TradeReduced)
-		}
-	}
-	{
-		const prefix string = ",\"halfSpreadCost\":"
-		out.RawString(prefix)
-		out.String(string(in.HalfSpreadCost))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel12(in *jlexer.Lexer, out *TradeReduce) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "units":
-			out.Units = DecimalNumber(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "realizedPL":
-			out.RealizedPL = AccountUnits(in.String())
-		case "financing":
-			out.Financing = AccountUnits(in.String())
-		case "baseFinancing":
-			out.BaseFinancing = DecimalNumber(in.String())
-		case "quoteFinancing":
-			out.QuoteFinancing = DecimalNumber(in.String())
-		case "financingRate":
-			out.FinancingRate = DecimalNumber(in.String())
-		case "guaranteedExecutionFee":
-			out.GuaranteedExecutionFee = AccountUnits(in.String())
-		case "quoteGuaranteedExecutionFee":
-			out.QuoteGuaranteedExecutionFee = DecimalNumber(in.String())
-		case "halfSpreadCost":
-			out.HalfSpreadCost = AccountUnits(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel12(out *jwriter.Writer, in TradeReduce) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"realizedPL\":"
-		out.RawString(prefix)
-		out.String(string(in.RealizedPL))
-	}
-	{
-		const prefix string = ",\"financing\":"
-		out.RawString(prefix)
-		out.String(string(in.Financing))
-	}
-	{
-		const prefix string = ",\"baseFinancing\":"
-		out.RawString(prefix)
-		out.String(string(in.BaseFinancing))
-	}
-	{
-		const prefix string = ",\"quoteFinancing\":"
-		out.RawString(prefix)
-		out.String(string(in.QuoteFinancing))
-	}
-	{
-		const prefix string = ",\"financingRate\":"
-		out.RawString(prefix)
-		out.String(string(in.FinancingRate))
-	}
-	{
-		const prefix string = ",\"guaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.GuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"quoteGuaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.QuoteGuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"halfSpreadCost\":"
-		out.RawString(prefix)
-		out.String(string(in.HalfSpreadCost))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel11(in *jlexer.Lexer, out *TradeOpen) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "units":
-			out.Units = DecimalNumber(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "guaranteedExecutionFee":
-			out.GuaranteedExecutionFee = AccountUnits(in.String())
-		case "quoteGuaranteedExecutionFee":
-			out.QuoteGuaranteedExecutionFee = DecimalNumber(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "halfSpreadCost":
-			out.HalfSpreadCost = AccountUnits(in.String())
-		case "initialMarginRequired":
-			out.InitialMarginRequired = AccountUnits(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel11(out *jwriter.Writer, in TradeOpen) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"guaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.GuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"quoteGuaranteedExecutionFee\":"
-		out.RawString(prefix)
-		out.String(string(in.QuoteGuaranteedExecutionFee))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"halfSpreadCost\":"
-		out.RawString(prefix)
-		out.String(string(in.HalfSpreadCost))
-	}
-	{
-		const prefix string = ",\"initialMarginRequired\":"
-		out.RawString(prefix)
-		out.String(string(in.InitialMarginRequired))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel5(in *jlexer.Lexer, out *TakeProfitOrderTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "reason":
-			out.Reason = TakeProfitOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "replacesOrderID":
-			out.ReplacesOrderID = OrderID(in.String())
-		case "cancellingTransactionID":
-			out.CancellingTransactionID = TransactionID(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel5(out *jwriter.Writer, in TakeProfitOrderTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"replacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"cancellingTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.CancellingTransactionID))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in *jlexer.Lexer, out *OrderCancelTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "orderID":
-			out.OrderID = OrderID(in.String())
-		case "clientOrderID":
-			out.ClientOrderID = OrderID(in.String())
-		case "reason":
-			out.Reason = OrderCancelReason(in.String())
-		case "replacedByOrderID":
-			out.ReplacedByOrderID = OrderID(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out *jwriter.Writer, in OrderCancelTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"orderID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderID))
-	}
-	{
-		const prefix string = ",\"clientOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientOrderID))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"replacedByOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ReplacedByOrderID))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *TradeModifyRequest) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in *jlexer.Lexer, out *TradeModifyRequest) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -2147,7 +705,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *
 				if out.TakeProfit == nil {
 					out.TakeProfit = new(TakeProfitDetails)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel14(in, out.TakeProfit)
+				(*out.TakeProfit).UnmarshalEasyJSON(in)
 			}
 		case "stopLoss":
 			if in.IsNull() {
@@ -2157,7 +715,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *
 				if out.StopLoss == nil {
 					out.StopLoss = new(StopLossDetails)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel15(in, out.StopLoss)
+				(*out.StopLoss).UnmarshalEasyJSON(in)
 			}
 		case "trailingStopLoss":
 			if in.IsNull() {
@@ -2167,7 +725,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *
 				if out.TrailingStopLoss == nil {
 					out.TrailingStopLoss = new(TrailingStopLossDetails)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel16(in, out.TrailingStopLoss)
+				(*out.TrailingStopLoss).UnmarshalEasyJSON(in)
 			}
 		case "guaranteedStopLoss":
 			if in.IsNull() {
@@ -2177,7 +735,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *
 				if out.GuaranteedStopLoss == nil {
 					out.GuaranteedStopLoss = new(GuaranteedStopLossDetails)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel17(in, out.GuaranteedStopLoss)
+				(*out.GuaranteedStopLoss).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.SkipRecursive()
@@ -2189,7 +747,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in TradeModifyRequest) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out *jwriter.Writer, in TradeModifyRequest) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -2199,7 +757,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in
 		if in.TakeProfit == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel14(out, *in.TakeProfit)
+			(*in.TakeProfit).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2208,7 +766,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in
 		if in.StopLoss == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel15(out, *in.StopLoss)
+			(*in.StopLoss).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2217,7 +775,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in
 		if in.TrailingStopLoss == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel16(out, *in.TrailingStopLoss)
+			(*in.TrailingStopLoss).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2226,7 +784,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in
 		if in.GuaranteedStopLoss == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel17(out, *in.GuaranteedStopLoss)
+			(*in.GuaranteedStopLoss).MarshalEasyJSON(out)
 		}
 	}
 	out.RawByte('}')
@@ -2235,341 +793,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeModifyRequest) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeModifyRequest) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel13(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeModifyRequest) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeModifyRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel13(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel17(in *jlexer.Lexer, out *GuaranteedStopLossDetails) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel17(out *jwriter.Writer, in GuaranteedStopLossDetails) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel16(in *jlexer.Lexer, out *TrailingStopLossDetails) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel16(out *jwriter.Writer, in TrailingStopLossDetails) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel15(in *jlexer.Lexer, out *StopLossDetails) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel15(out *jwriter.Writer, in StopLossDetails) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel14(in *jlexer.Lexer, out *TakeProfitDetails) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel14(out *jwriter.Writer, in TakeProfitDetails) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *TradeModifyError) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel5(in *jlexer.Lexer, out *TradeModifyError) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -2596,7 +840,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.TakeProfitOrderCancelRejectTransaction == nil {
 					out.TakeProfitOrderCancelRejectTransaction = new(OrderCancelRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel19(in, out.TakeProfitOrderCancelRejectTransaction)
+				(*out.TakeProfitOrderCancelRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrderRejectTransaction":
 			if in.IsNull() {
@@ -2606,7 +850,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.TakeProfitOrderRejectTransaction == nil {
 					out.TakeProfitOrderRejectTransaction = new(TakeProfitOrderRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel20(in, out.TakeProfitOrderRejectTransaction)
+				(*out.TakeProfitOrderRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderCancelRejectTransaction":
 			if in.IsNull() {
@@ -2616,7 +860,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.StopLossOrderCancelRejectTransaction == nil {
 					out.StopLossOrderCancelRejectTransaction = new(OrderCancelRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel19(in, out.StopLossOrderCancelRejectTransaction)
+				(*out.StopLossOrderCancelRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "stopLossOrderRejectTransaction":
 			if in.IsNull() {
@@ -2626,7 +870,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.StopLossOrderRejectTransaction == nil {
 					out.StopLossOrderRejectTransaction = new(StopLossOrderRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel21(in, out.StopLossOrderRejectTransaction)
+				(*out.StopLossOrderRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "trailingStopLossOrderCancelRejectTransaction":
 			if in.IsNull() {
@@ -2636,7 +880,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.TrailingStopLossOrderCancelRejectTransaction == nil {
 					out.TrailingStopLossOrderCancelRejectTransaction = new(OrderCancelRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel19(in, out.TrailingStopLossOrderCancelRejectTransaction)
+				(*out.TrailingStopLossOrderCancelRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "trailingStopLossOrderRejectTransaction":
 			if in.IsNull() {
@@ -2646,7 +890,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.TrailingStopLossOrderRejectTransaction == nil {
 					out.TrailingStopLossOrderRejectTransaction = new(TrailingStopLossOrderRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel22(in, out.TrailingStopLossOrderRejectTransaction)
+				(*out.TrailingStopLossOrderRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "guaranteedStopLossOrderCancelRejectTransaction":
 			if in.IsNull() {
@@ -2656,7 +900,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.GuaranteedStopLossOrderCancelRejectTransaction == nil {
 					out.GuaranteedStopLossOrderCancelRejectTransaction = new(OrderCancelRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel19(in, out.GuaranteedStopLossOrderCancelRejectTransaction)
+				(*out.GuaranteedStopLossOrderCancelRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "guaranteedStopLossOrderRejectTransaction":
 			if in.IsNull() {
@@ -2666,7 +910,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 				if out.GuaranteedStopLossOrderRejectTransaction == nil {
 					out.GuaranteedStopLossOrderRejectTransaction = new(GuaranteedStopLossOrderRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel23(in, out.GuaranteedStopLossOrderRejectTransaction)
+				(*out.GuaranteedStopLossOrderRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "errorCode":
 			out.ErrorCode = string(in.String())
@@ -2682,7 +926,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in TradeModifyError) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel5(out *jwriter.Writer, in TradeModifyError) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -2692,7 +936,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.TakeProfitOrderCancelRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel19(out, *in.TakeProfitOrderCancelRejectTransaction)
+			(*in.TakeProfitOrderCancelRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2701,7 +945,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.TakeProfitOrderRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel20(out, *in.TakeProfitOrderRejectTransaction)
+			(*in.TakeProfitOrderRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2710,7 +954,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.StopLossOrderCancelRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel19(out, *in.StopLossOrderCancelRejectTransaction)
+			(*in.StopLossOrderCancelRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2719,7 +963,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.StopLossOrderRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel21(out, *in.StopLossOrderRejectTransaction)
+			(*in.StopLossOrderRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2728,7 +972,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.TrailingStopLossOrderCancelRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel19(out, *in.TrailingStopLossOrderCancelRejectTransaction)
+			(*in.TrailingStopLossOrderCancelRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2737,7 +981,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.TrailingStopLossOrderRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel22(out, *in.TrailingStopLossOrderRejectTransaction)
+			(*in.TrailingStopLossOrderRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2746,7 +990,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.GuaranteedStopLossOrderCancelRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel19(out, *in.GuaranteedStopLossOrderCancelRejectTransaction)
+			(*in.GuaranteedStopLossOrderCancelRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2755,7 +999,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 		if in.GuaranteedStopLossOrderRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel23(out, *in.GuaranteedStopLossOrderRejectTransaction)
+			(*in.GuaranteedStopLossOrderRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -2774,845 +1018,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeModifyError) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel5(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeModifyError) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel18(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel5(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeModifyError) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel5(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeModifyError) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel18(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel5(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel23(in *jlexer.Lexer, out *GuaranteedStopLossOrderRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "reason":
-			out.Reason = GuaranteedStopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "intendedReplacesOrderID":
-			out.IntendedReplacesOrderID = OrderID(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel23(out *jwriter.Writer, in GuaranteedStopLossOrderRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"intendedReplacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.IntendedReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel22(in *jlexer.Lexer, out *TrailingStopLossOrderRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "reason":
-			out.Reason = TrailingStopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "intendedReplacesOrderID":
-			out.IntendedReplacesOrderID = OrderID(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel22(out *jwriter.Writer, in TrailingStopLossOrderRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"intendedReplacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.IntendedReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel21(in *jlexer.Lexer, out *StopLossOrderRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "distance":
-			out.Distance = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "guaranteed":
-			out.Guaranteed = bool(in.Bool())
-		case "reason":
-			out.Reason = StopLossOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "intendedReplacesOrderID":
-			out.IntendedReplacesOrderID = OrderID(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel21(out *jwriter.Writer, in StopLossOrderRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"distance\":"
-		out.RawString(prefix)
-		out.String(string(in.Distance))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"guaranteed\":"
-		out.RawString(prefix)
-		out.Bool(bool(in.Guaranteed))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"intendedReplacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.IntendedReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel20(in *jlexer.Lexer, out *TakeProfitOrderRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "price":
-			out.Price = PriceValue(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "gtdTime":
-			out.GtdTime = DateTime(in.String())
-		case "triggerCondition":
-			out.TriggerCondition = OrderTriggerCondition(in.String())
-		case "reason":
-			out.Reason = TakeProfitOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "orderFillTransactionID":
-			out.OrderFillTransactionID = TransactionID(in.String())
-		case "intendedReplacesOrderID":
-			out.IntendedReplacesOrderID = OrderID(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel20(out *jwriter.Writer, in TakeProfitOrderRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"price\":"
-		out.RawString(prefix)
-		out.String(string(in.Price))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"gtdTime\":"
-		out.RawString(prefix)
-		out.String(string(in.GtdTime))
-	}
-	{
-		const prefix string = ",\"triggerCondition\":"
-		out.RawString(prefix)
-		out.String(string(in.TriggerCondition))
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"orderFillTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderFillTransactionID))
-	}
-	{
-		const prefix string = ",\"intendedReplacesOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.IntendedReplacesOrderID))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel19(in *jlexer.Lexer, out *OrderCancelRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "orderID":
-			out.OrderID = OrderID(in.String())
-		case "clientOrderID":
-			out.ClientOrderID = OrderID(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel19(out *jwriter.Writer, in OrderCancelRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"orderID\":"
-		out.RawString(prefix)
-		out.String(string(in.OrderID))
-	}
-	{
-		const prefix string = ",\"clientOrderID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientOrderID))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *TradeCloseResponse) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(in *jlexer.Lexer, out *TradeCloseResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -3639,7 +1065,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *
 				if out.OrderCreateTransaction == nil {
 					out.OrderCreateTransaction = new(MarketOrderTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel25(in, out.OrderCreateTransaction)
+				(*out.OrderCreateTransaction).UnmarshalEasyJSON(in)
 			}
 		case "orderFillTransaction":
 			if in.IsNull() {
@@ -3649,7 +1075,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *
 				if out.OrderFillTransaction == nil {
 					out.OrderFillTransaction = new(OrderFillTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(in, out.OrderFillTransaction)
+				(*out.OrderFillTransaction).UnmarshalEasyJSON(in)
 			}
 		case "orderCancelTransaction":
 			if in.IsNull() {
@@ -3659,7 +1085,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *
 				if out.OrderCancelTransaction == nil {
 					out.OrderCancelTransaction = new(OrderCancelTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel4(in, out.OrderCancelTransaction)
+				(*out.OrderCancelTransaction).UnmarshalEasyJSON(in)
 			}
 		case "relatedTransactionIDs":
 			if in.IsNull() {
@@ -3677,9 +1103,9 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *
 					out.RelatedTransactionIDs = (out.RelatedTransactionIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v13 TransactionID
-					v13 = TransactionID(in.String())
-					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v13)
+					var v10 TransactionID
+					v10 = TransactionID(in.String())
+					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v10)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -3696,7 +1122,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in TradeCloseResponse) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(out *jwriter.Writer, in TradeCloseResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -3706,7 +1132,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in
 		if in.OrderCreateTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel25(out, *in.OrderCreateTransaction)
+			(*in.OrderCreateTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -3715,7 +1141,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in
 		if in.OrderFillTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(out, *in.OrderFillTransaction)
+			(*in.OrderFillTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -3724,7 +1150,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in
 		if in.OrderCancelTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel4(out, *in.OrderCancelTransaction)
+			(*in.OrderCancelTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -3734,11 +1160,11 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v14, v15 := range in.RelatedTransactionIDs {
-				if v14 > 0 {
+			for v11, v12 := range in.RelatedTransactionIDs {
+				if v11 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v15))
+				out.String(string(v12))
 			}
 			out.RawByte(']')
 		}
@@ -3754,565 +1180,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeCloseResponse) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeCloseResponse) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel24(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel6(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeCloseResponse) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeCloseResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel24(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel6(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel25(in *jlexer.Lexer, out *MarketOrderTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "instrument":
-			out.Instrument = InstrumentName(in.String())
-		case "units":
-			out.Units = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "priceBound":
-			out.PriceBound = PriceValue(in.String())
-		case "positionFill":
-			out.PositionFill = OrderPositionFill(in.String())
-		case "tradeClose":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClose = nil
-			} else {
-				if out.TradeClose == nil {
-					out.TradeClose = new(MarketOrderTradeClose)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel26(in, out.TradeClose)
-			}
-		case "longPositionCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.LongPositionCloseout = nil
-			} else {
-				if out.LongPositionCloseout == nil {
-					out.LongPositionCloseout = new(MarketOrderPositionCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel27(in, out.LongPositionCloseout)
-			}
-		case "shortPositionCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.ShortPositionCloseout = nil
-			} else {
-				if out.ShortPositionCloseout == nil {
-					out.ShortPositionCloseout = new(MarketOrderPositionCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel27(in, out.ShortPositionCloseout)
-			}
-		case "marginCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.MarginCloseout = nil
-			} else {
-				if out.MarginCloseout == nil {
-					out.MarginCloseout = new(MarketOrderMarginCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel28(in, out.MarginCloseout)
-			}
-		case "delayedTradeClose":
-			if in.IsNull() {
-				in.Skip()
-				out.DelayedTradeClose = nil
-			} else {
-				if out.DelayedTradeClose == nil {
-					out.DelayedTradeClose = new(MarketOrderDelayedTradeClose)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel29(in, out.DelayedTradeClose)
-			}
-		case "reason":
-			out.Reason = MarketOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "takeProfitOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.TakeProfitOnFill = nil
-			} else {
-				if out.TakeProfitOnFill == nil {
-					out.TakeProfitOnFill = new(TakeProfitDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel14(in, out.TakeProfitOnFill)
-			}
-		case "stopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.StopLossOnFill = nil
-			} else {
-				if out.StopLossOnFill == nil {
-					out.StopLossOnFill = new(StopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel15(in, out.StopLossOnFill)
-			}
-		case "trailingStopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.TrailingStopLossOnFill = nil
-			} else {
-				if out.TrailingStopLossOnFill == nil {
-					out.TrailingStopLossOnFill = new(TrailingStopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel16(in, out.TrailingStopLossOnFill)
-			}
-		case "guaranteedStopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.GuaranteedStopLossOnFill = nil
-			} else {
-				if out.GuaranteedStopLossOnFill == nil {
-					out.GuaranteedStopLossOnFill = new(GuaranteedStopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel17(in, out.GuaranteedStopLossOnFill)
-			}
-		case "tradeClientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClientExtensions = nil
-			} else {
-				if out.TradeClientExtensions == nil {
-					out.TradeClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.TradeClientExtensions)
-			}
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel25(out *jwriter.Writer, in MarketOrderTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"instrument\":"
-		out.RawString(prefix)
-		out.String(string(in.Instrument))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"priceBound\":"
-		out.RawString(prefix)
-		out.String(string(in.PriceBound))
-	}
-	{
-		const prefix string = ",\"positionFill\":"
-		out.RawString(prefix)
-		out.String(string(in.PositionFill))
-	}
-	{
-		const prefix string = ",\"tradeClose\":"
-		out.RawString(prefix)
-		if in.TradeClose == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel26(out, *in.TradeClose)
-		}
-	}
-	{
-		const prefix string = ",\"longPositionCloseout\":"
-		out.RawString(prefix)
-		if in.LongPositionCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel27(out, *in.LongPositionCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"shortPositionCloseout\":"
-		out.RawString(prefix)
-		if in.ShortPositionCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel27(out, *in.ShortPositionCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"marginCloseout\":"
-		out.RawString(prefix)
-		if in.MarginCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel28(out, *in.MarginCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"delayedTradeClose\":"
-		out.RawString(prefix)
-		if in.DelayedTradeClose == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel29(out, *in.DelayedTradeClose)
-		}
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"takeProfitOnFill\":"
-		out.RawString(prefix)
-		if in.TakeProfitOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel14(out, *in.TakeProfitOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"stopLossOnFill\":"
-		out.RawString(prefix)
-		if in.StopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel15(out, *in.StopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"trailingStopLossOnFill\":"
-		out.RawString(prefix)
-		if in.TrailingStopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel16(out, *in.TrailingStopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"guaranteedStopLossOnFill\":"
-		out.RawString(prefix)
-		if in.GuaranteedStopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel17(out, *in.GuaranteedStopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"tradeClientExtensions\":"
-		out.RawString(prefix)
-		if in.TradeClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.TradeClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel29(in *jlexer.Lexer, out *MarketOrderDelayedTradeClose) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "tradeId":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeId":
-			out.ClientTradeID = TradeID(in.String())
-		case "sourceTransactionID":
-			out.SourceTransactionID = TransactionID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel29(out *jwriter.Writer, in MarketOrderDelayedTradeClose) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"tradeId\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeId\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"sourceTransactionID\":"
-		out.RawString(prefix)
-		out.String(string(in.SourceTransactionID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel28(in *jlexer.Lexer, out *MarketOrderMarginCloseout) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "reason":
-			out.Reason = MarketOrderMarginCloseoutReason(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel28(out *jwriter.Writer, in MarketOrderMarginCloseout) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Reason))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel27(in *jlexer.Lexer, out *MarketOrderPositionCloseout) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "instrument":
-			out.Instrument = InstrumentName(in.String())
-		case "units":
-			out.Units = string(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel27(out *jwriter.Writer, in MarketOrderPositionCloseout) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"instrument\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Instrument))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel26(in *jlexer.Lexer, out *MarketOrderTradeClose) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "tradeId":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeId":
-			out.ClientTradeID = string(in.String())
-		case "units":
-			out.Units = string(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel26(out *jwriter.Writer, in MarketOrderTradeClose) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"tradeId\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeId\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(in *jlexer.Lexer, out *TradeCloseError) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel7(in *jlexer.Lexer, out *TradeCloseError) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -4339,7 +1227,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(in *jlexer.Lexer, out *
 				if out.OrderRejectTransaction == nil {
 					out.OrderRejectTransaction = new(MarketOrderRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel31(in, out.OrderRejectTransaction)
+				(*out.OrderRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "lastTransactionID":
 			out.LastTransactionID = TransactionID(in.String())
@@ -4359,9 +1247,9 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(in *jlexer.Lexer, out *
 					out.RelatedTransactionIDs = (out.RelatedTransactionIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v16 TransactionID
-					v16 = TransactionID(in.String())
-					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v16)
+					var v13 TransactionID
+					v13 = TransactionID(in.String())
+					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v13)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4380,7 +1268,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(out *jwriter.Writer, in TradeCloseError) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel7(out *jwriter.Writer, in TradeCloseError) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -4390,7 +1278,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(out *jwriter.Writer, in
 		if in.OrderRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel31(out, *in.OrderRejectTransaction)
+			(*in.OrderRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -4405,11 +1293,11 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(out *jwriter.Writer, in
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v17, v18 := range in.RelatedTransactionIDs {
-				if v17 > 0 {
+			for v14, v15 := range in.RelatedTransactionIDs {
+				if v14 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v18))
+				out.String(string(v15))
 			}
 			out.RawByte(']')
 		}
@@ -4430,369 +1318,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeCloseError) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel7(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeCloseError) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel30(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel7(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeCloseError) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel7(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeCloseError) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel30(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel7(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel31(in *jlexer.Lexer, out *MarketOrderRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "instrument":
-			out.Instrument = InstrumentName(in.String())
-		case "units":
-			out.Units = DecimalNumber(in.String())
-		case "timeInForce":
-			out.TimeInForce = TimeInForce(in.String())
-		case "priceBound":
-			out.PriceBound = PriceValue(in.String())
-		case "positionFill":
-			out.PositionFill = OrderPositionFill(in.String())
-		case "tradeClose":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClose = nil
-			} else {
-				if out.TradeClose == nil {
-					out.TradeClose = new(MarketOrderTradeClose)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel26(in, out.TradeClose)
-			}
-		case "longPositionCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.LongPositionCloseout = nil
-			} else {
-				if out.LongPositionCloseout == nil {
-					out.LongPositionCloseout = new(MarketOrderPositionCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel27(in, out.LongPositionCloseout)
-			}
-		case "shortPositionCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.ShortPositionCloseout = nil
-			} else {
-				if out.ShortPositionCloseout == nil {
-					out.ShortPositionCloseout = new(MarketOrderPositionCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel27(in, out.ShortPositionCloseout)
-			}
-		case "marginCloseout":
-			if in.IsNull() {
-				in.Skip()
-				out.MarginCloseout = nil
-			} else {
-				if out.MarginCloseout == nil {
-					out.MarginCloseout = new(MarketOrderMarginCloseout)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel28(in, out.MarginCloseout)
-			}
-		case "delayedTradeClose":
-			if in.IsNull() {
-				in.Skip()
-				out.DelayedTradeClose = nil
-			} else {
-				if out.DelayedTradeClose == nil {
-					out.DelayedTradeClose = new(MarketOrderDelayedTradeClose)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel29(in, out.DelayedTradeClose)
-			}
-		case "reason":
-			out.Reason = MarketOrderReason(in.String())
-		case "clientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.ClientExtensions = nil
-			} else {
-				if out.ClientExtensions == nil {
-					out.ClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
-			}
-		case "takeProfitOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.TakeProfitOnFill = nil
-			} else {
-				if out.TakeProfitOnFill == nil {
-					out.TakeProfitOnFill = new(TakeProfitDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel14(in, out.TakeProfitOnFill)
-			}
-		case "stopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.StopLossOnFill = nil
-			} else {
-				if out.StopLossOnFill == nil {
-					out.StopLossOnFill = new(StopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel15(in, out.StopLossOnFill)
-			}
-		case "trailingStopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.TrailingStopLossOnFill = nil
-			} else {
-				if out.TrailingStopLossOnFill == nil {
-					out.TrailingStopLossOnFill = new(TrailingStopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel16(in, out.TrailingStopLossOnFill)
-			}
-		case "guaranteedStopLossOnFill":
-			if in.IsNull() {
-				in.Skip()
-				out.GuaranteedStopLossOnFill = nil
-			} else {
-				if out.GuaranteedStopLossOnFill == nil {
-					out.GuaranteedStopLossOnFill = new(GuaranteedStopLossDetails)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel17(in, out.GuaranteedStopLossOnFill)
-			}
-		case "tradeClientExtensions":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClientExtensions = nil
-			} else {
-				if out.TradeClientExtensions == nil {
-					out.TradeClientExtensions = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.TradeClientExtensions)
-			}
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel31(out *jwriter.Writer, in MarketOrderRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"instrument\":"
-		out.RawString(prefix)
-		out.String(string(in.Instrument))
-	}
-	{
-		const prefix string = ",\"units\":"
-		out.RawString(prefix)
-		out.String(string(in.Units))
-	}
-	{
-		const prefix string = ",\"timeInForce\":"
-		out.RawString(prefix)
-		out.String(string(in.TimeInForce))
-	}
-	{
-		const prefix string = ",\"priceBound\":"
-		out.RawString(prefix)
-		out.String(string(in.PriceBound))
-	}
-	{
-		const prefix string = ",\"positionFill\":"
-		out.RawString(prefix)
-		out.String(string(in.PositionFill))
-	}
-	{
-		const prefix string = ",\"tradeClose\":"
-		out.RawString(prefix)
-		if in.TradeClose == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel26(out, *in.TradeClose)
-		}
-	}
-	{
-		const prefix string = ",\"longPositionCloseout\":"
-		out.RawString(prefix)
-		if in.LongPositionCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel27(out, *in.LongPositionCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"shortPositionCloseout\":"
-		out.RawString(prefix)
-		if in.ShortPositionCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel27(out, *in.ShortPositionCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"marginCloseout\":"
-		out.RawString(prefix)
-		if in.MarginCloseout == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel28(out, *in.MarginCloseout)
-		}
-	}
-	{
-		const prefix string = ",\"delayedTradeClose\":"
-		out.RawString(prefix)
-		if in.DelayedTradeClose == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel29(out, *in.DelayedTradeClose)
-		}
-	}
-	{
-		const prefix string = ",\"reason\":"
-		out.RawString(prefix)
-		out.String(string(in.Reason))
-	}
-	{
-		const prefix string = ",\"clientExtensions\":"
-		out.RawString(prefix)
-		if in.ClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"takeProfitOnFill\":"
-		out.RawString(prefix)
-		if in.TakeProfitOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel14(out, *in.TakeProfitOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"stopLossOnFill\":"
-		out.RawString(prefix)
-		if in.StopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel15(out, *in.StopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"trailingStopLossOnFill\":"
-		out.RawString(prefix)
-		if in.TrailingStopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel16(out, *in.TrailingStopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"guaranteedStopLossOnFill\":"
-		out.RawString(prefix)
-		if in.GuaranteedStopLossOnFill == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel17(out, *in.GuaranteedStopLossOnFill)
-		}
-	}
-	{
-		const prefix string = ",\"tradeClientExtensions\":"
-		out.RawString(prefix)
-		if in.TradeClientExtensions == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.TradeClientExtensions)
-		}
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(in *jlexer.Lexer, out *TradeClientExtensionsResponse) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel8(in *jlexer.Lexer, out *TradeClientExtensionsResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -4819,7 +1365,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(in *jlexer.Lexer, out *
 				if out.TradeClientExtensionsModifyTransaction == nil {
 					out.TradeClientExtensionsModifyTransaction = new(TradeClientExtensionsModifyTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel33(in, out.TradeClientExtensionsModifyTransaction)
+				(*out.TradeClientExtensionsModifyTransaction).UnmarshalEasyJSON(in)
 			}
 		case "relatedTransactionIDs":
 			if in.IsNull() {
@@ -4837,9 +1383,9 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(in *jlexer.Lexer, out *
 					out.RelatedTransactionIDs = (out.RelatedTransactionIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v19 TransactionID
-					v19 = TransactionID(in.String())
-					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v19)
+					var v16 TransactionID
+					v16 = TransactionID(in.String())
+					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v16)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -4856,7 +1402,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(out *jwriter.Writer, in TradeClientExtensionsResponse) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel8(out *jwriter.Writer, in TradeClientExtensionsResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -4866,7 +1412,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(out *jwriter.Writer, in
 		if in.TradeClientExtensionsModifyTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel33(out, *in.TradeClientExtensionsModifyTransaction)
+			(*in.TradeClientExtensionsModifyTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -4876,11 +1422,11 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(out *jwriter.Writer, in
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v20, v21 := range in.RelatedTransactionIDs {
-				if v20 > 0 {
+			for v17, v18 := range in.RelatedTransactionIDs {
+				if v17 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v21))
+				out.String(string(v18))
 			}
 			out.RawByte(']')
 		}
@@ -4896,144 +1442,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeClientExtensionsResponse) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel8(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeClientExtensionsResponse) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel32(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel8(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeClientExtensionsResponse) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel8(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeClientExtensionsResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel32(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel8(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel33(in *jlexer.Lexer, out *TradeClientExtensionsModifyTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "tradeClientExtensionsModify":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClientExtensionsModify = nil
-			} else {
-				if out.TradeClientExtensionsModify == nil {
-					out.TradeClientExtensionsModify = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.TradeClientExtensionsModify)
-			}
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel33(out *jwriter.Writer, in TradeClientExtensionsModifyTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"tradeClientExtensionsModify\":"
-		out.RawString(prefix)
-		if in.TradeClientExtensionsModify == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.TradeClientExtensionsModify)
-		}
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel34(in *jlexer.Lexer, out *TradeClientExtensionsRequest) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel9(in *jlexer.Lexer, out *TradeClientExtensionsRequest) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -5060,7 +1489,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel34(in *jlexer.Lexer, out *
 				if out.ClientExtensions == nil {
 					out.ClientExtensions = new(ClientExtensions)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.ClientExtensions)
+				(*out.ClientExtensions).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.SkipRecursive()
@@ -5072,7 +1501,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel34(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel34(out *jwriter.Writer, in TradeClientExtensionsRequest) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel9(out *jwriter.Writer, in TradeClientExtensionsRequest) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -5082,7 +1511,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel34(out *jwriter.Writer, in
 		if in.ClientExtensions == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.ClientExtensions)
+			(*in.ClientExtensions).MarshalEasyJSON(out)
 		}
 	}
 	out.RawByte('}')
@@ -5091,27 +1520,27 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel34(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeClientExtensionsRequest) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel34(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel9(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeClientExtensionsRequest) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel34(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel9(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeClientExtensionsRequest) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel34(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel9(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeClientExtensionsRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel34(l, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel9(l, v)
 }
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(in *jlexer.Lexer, out *TradeClientExtensionsError) {
+func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in *jlexer.Lexer, out *TradeClientExtensionsError) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -5138,7 +1567,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(in *jlexer.Lexer, out *
 				if out.TradeClientExtensionsModifyRejectTransaction == nil {
 					out.TradeClientExtensionsModifyRejectTransaction = new(TradeClientExtensionsModifyRejectTransaction)
 				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel36(in, out.TradeClientExtensionsModifyRejectTransaction)
+				(*out.TradeClientExtensionsModifyRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "lastTransactionID":
 			out.LastTransactionID = TransactionID(in.String())
@@ -5158,9 +1587,9 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(in *jlexer.Lexer, out *
 					out.RelatedTransactionIDs = (out.RelatedTransactionIDs)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v22 TransactionID
-					v22 = TransactionID(in.String())
-					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v22)
+					var v19 TransactionID
+					v19 = TransactionID(in.String())
+					out.RelatedTransactionIDs = append(out.RelatedTransactionIDs, v19)
 					in.WantComma()
 				}
 				in.Delim(']')
@@ -5179,7 +1608,7 @@ func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(in *jlexer.Lexer, out *
 		in.Consumed()
 	}
 }
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(out *jwriter.Writer, in TradeClientExtensionsError) {
+func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out *jwriter.Writer, in TradeClientExtensionsError) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -5189,7 +1618,7 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(out *jwriter.Writer, in
 		if in.TradeClientExtensionsModifyRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel36(out, *in.TradeClientExtensionsModifyRejectTransaction)
+			(*in.TradeClientExtensionsModifyRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -5204,11 +1633,11 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(out *jwriter.Writer, in
 			out.RawString("null")
 		} else {
 			out.RawByte('[')
-			for v23, v24 := range in.RelatedTransactionIDs {
-				if v23 > 0 {
+			for v20, v21 := range in.RelatedTransactionIDs {
+				if v20 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v24))
+				out.String(string(v21))
 			}
 			out.RawByte(']')
 		}
@@ -5229,147 +1658,23 @@ func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(out *jwriter.Writer, in
 // MarshalJSON supports json.Marshaler interface
 func (v TradeClientExtensionsError) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(&w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v TradeClientExtensionsError) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel35(w, v)
+	easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *TradeClientExtensionsError) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(&r, v)
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *TradeClientExtensionsError) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel35(l, v)
-}
-func easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel36(in *jlexer.Lexer, out *TradeClientExtensionsModifyRejectTransaction) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "tradeID":
-			out.TradeID = TradeID(in.String())
-		case "clientTradeID":
-			out.ClientTradeID = ClientID(in.String())
-		case "tradeClientExtensionsModify":
-			if in.IsNull() {
-				in.Skip()
-				out.TradeClientExtensionsModify = nil
-			} else {
-				if out.TradeClientExtensionsModify == nil {
-					out.TradeClientExtensionsModify = new(ClientExtensions)
-				}
-				easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(in, out.TradeClientExtensionsModify)
-			}
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel36(out *jwriter.Writer, in TradeClientExtensionsModifyRejectTransaction) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"type\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.Type))
-	}
-	{
-		const prefix string = ",\"tradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.TradeID))
-	}
-	{
-		const prefix string = ",\"clientTradeID\":"
-		out.RawString(prefix)
-		out.String(string(in.ClientTradeID))
-	}
-	{
-		const prefix string = ",\"tradeClientExtensionsModify\":"
-		out.RawString(prefix)
-		if in.TradeClientExtensionsModify == nil {
-			out.RawString("null")
-		} else {
-			easyjson6f24b5b6EncodeGithubComKamaiuOandaGoModel10(out, *in.TradeClientExtensionsModify)
-		}
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
-	}
-	out.RawByte('}')
+	easyjson6f24b5b6DecodeGithubComKamaiuOandaGoModel10(l, v)
 }

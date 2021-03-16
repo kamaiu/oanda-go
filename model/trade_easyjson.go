@@ -97,7 +97,7 @@ func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel(in *jlexer.Lexer, out *Tr
 				if out.ClientExtensions == nil {
 					out.ClientExtensions = new(ClientExtensions)
 				}
-				easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(in, out.ClientExtensions)
+				(*out.ClientExtensions).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrderID":
 			out.TakeProfitOrderID = OrderID(in.String())
@@ -218,7 +218,7 @@ func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel(out *jwriter.Writer, in T
 		if in.ClientExtensions == nil {
 			out.RawString("null")
 		} else {
-			easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(out, *in.ClientExtensions)
+			(*in.ClientExtensions).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -267,63 +267,7 @@ func (v *TradeSummary) UnmarshalJSON(data []byte) error {
 func (v *TradeSummary) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel(l, v)
 }
-func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *ClientExtensions) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "id":
-			out.ID = ClientID(in.String())
-		case "tag":
-			out.Tag = ClientTag(in.String())
-		case "comment":
-			out.Comment = ClientComment(in.String())
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in ClientExtensions) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix[1:])
-		out.String(string(in.ID))
-	}
-	{
-		const prefix string = ",\"tag\":"
-		out.RawString(prefix)
-		out.String(string(in.Tag))
-	}
-	{
-		const prefix string = ",\"comment\":"
-		out.RawString(prefix)
-		out.String(string(in.Comment))
-	}
-	out.RawByte('}')
-}
-func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(in *jlexer.Lexer, out *Trade) {
+func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *Trade) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -403,7 +347,7 @@ func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(in *jlexer.Lexer, out *T
 				if out.ClientExtensions == nil {
 					out.ClientExtensions = new(ClientExtensions)
 				}
-				easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(in, out.ClientExtensions)
+				(*out.ClientExtensions).UnmarshalEasyJSON(in)
 			}
 		case "takeProfitOrder":
 			if in.IsNull() {
@@ -445,7 +389,7 @@ func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(in *jlexer.Lexer, out *T
 		in.Consumed()
 	}
 }
-func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(out *jwriter.Writer, in Trade) {
+func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in Trade) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -546,7 +490,7 @@ func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(out *jwriter.Writer, in 
 		if in.ClientExtensions == nil {
 			out.RawString("null")
 		} else {
-			easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(out, *in.ClientExtensions)
+			(*in.ClientExtensions).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -582,27 +526,27 @@ func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v Trade) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(&w, v)
+	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v Trade) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(w, v)
+	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel1(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *Trade) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(&r, v)
+	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *Trade) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(l, v)
+	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel1(l, v)
 }
-func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *CalculatedTradeState) {
+func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(in *jlexer.Lexer, out *CalculatedTradeState) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -637,7 +581,7 @@ func easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *C
 		in.Consumed()
 	}
 }
-func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in CalculatedTradeState) {
+func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(out *jwriter.Writer, in CalculatedTradeState) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -662,23 +606,23 @@ func easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v CalculatedTradeState) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel3(&w, v)
+	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v CalculatedTradeState) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel3(w, v)
+	easyjsonB0fe1dfcEncodeGithubComKamaiuOandaGoModel2(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *CalculatedTradeState) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel3(&r, v)
+	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *CalculatedTradeState) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel3(l, v)
+	easyjsonB0fe1dfcDecodeGithubComKamaiuOandaGoModel2(l, v)
 }

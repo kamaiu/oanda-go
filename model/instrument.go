@@ -1,8 +1,6 @@
 //go:generate easyjson -all $GOFILE
 package model
 
-// Supporting OANDA docs - http://developer.com/rest-live-v20/instrument-ep/
-
 // The granularity of the candlestick
 type CandlestickGranularity string
 

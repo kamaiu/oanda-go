@@ -24,7 +24,9 @@ func (c *Connection) Accounts() (*AccountsResponse, error) {
 
 // GET  /v3/accounts
 // Get a list of all Accounts authorized for the provided token.
-func (c *Connection) Account(id AccountID) (*Account, error) {
+func (c *Connection) Account(
+	id AccountID,
+) (*Account, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
@@ -38,7 +40,9 @@ func (c *Connection) Account(id AccountID) (*Account, error) {
 
 // GET  /v3/accounts/{accountID}/summary
 // Get a summary for a single Account that a client has access to.
-func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, error) {
+func (c *Connection) AccountSummary(
+	id AccountID,
+) (*AccountSummaryResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
@@ -55,7 +59,10 @@ func (c *Connection) AccountSummary(id AccountID) (*AccountSummaryResponse, erro
 // Get the list of tradeable instruments for the given Account. The list of tradeable
 // instruments is dependent on the regulatory division that the Account is located in,
 // thus should be the same for all Accounts owned by a single user.
-func (c *Connection) AccountInstruments(id AccountID, filter []string) (*AccountInstrumentsResponse, error) {
+func (c *Connection) AccountInstruments(
+	id AccountID,
+	filter []string,
+) (*AccountInstrumentsResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")
@@ -136,7 +143,10 @@ func (c *Connection) AccountConfigure(
 
 // GET  /v3/accounts/{accountID}/changes
 //Endpoint used to poll an Account for its current state and changes since a specified TransactionID.
-func (c *Connection) AccountChanges(id AccountID, sinceTransactionID TransactionID) (*AccountChangesResponse, error) {
+func (c *Connection) AccountChanges(
+	id AccountID,
+	sinceTransactionID TransactionID,
+) (*AccountChangesResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.host)
 	_, _ = url.WriteString("/v3/accounts/")

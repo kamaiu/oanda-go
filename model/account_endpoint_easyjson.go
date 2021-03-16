@@ -17,7 +17,562 @@ var (
 	_ easyjson.Marshaler
 )
 
-func easyjson73770c33DecodeGithubComKamaiuOandaGoModel(in *jlexer.Lexer, out *AccountConfigurationError) {
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel(in *jlexer.Lexer, out *AccountsResponse) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "accounts":
+			if in.IsNull() {
+				in.Skip()
+				out.Accounts = nil
+			} else {
+				in.Delim('[')
+				if out.Accounts == nil {
+					if !in.IsDelim(']') {
+						out.Accounts = make([]*AccountProperties, 0, 8)
+					} else {
+						out.Accounts = []*AccountProperties{}
+					}
+				} else {
+					out.Accounts = (out.Accounts)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v1 *AccountProperties
+					if in.IsNull() {
+						in.Skip()
+						v1 = nil
+					} else {
+						if v1 == nil {
+							v1 = new(AccountProperties)
+						}
+						(*v1).UnmarshalEasyJSON(in)
+					}
+					out.Accounts = append(out.Accounts, v1)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel(out *jwriter.Writer, in AccountsResponse) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"accounts\":"
+		out.RawString(prefix[1:])
+		if in.Accounts == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+			out.RawString("null")
+		} else {
+			out.RawByte('[')
+			for v2, v3 := range in.Accounts {
+				if v2 > 0 {
+					out.RawByte(',')
+				}
+				if v3 == nil {
+					out.RawString("null")
+				} else {
+					(*v3).MarshalEasyJSON(out)
+				}
+			}
+			out.RawByte(']')
+		}
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountsResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountsResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountsResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountsResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *AccountSummaryResponse) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "account":
+			if in.IsNull() {
+				in.Skip()
+				out.Account = nil
+			} else {
+				if out.Account == nil {
+					out.Account = new(AccountSummary)
+				}
+				(*out.Account).UnmarshalEasyJSON(in)
+			}
+		case "lastTransactionID":
+			out.LastTransactionID = TransactionID(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in AccountSummaryResponse) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"account\":"
+		out.RawString(prefix[1:])
+		if in.Account == nil {
+			out.RawString("null")
+		} else {
+			(*in.Account).MarshalEasyJSON(out)
+		}
+	}
+	{
+		const prefix string = ",\"lastTransactionID\":"
+		out.RawString(prefix)
+		out.String(string(in.LastTransactionID))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountSummaryResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel1(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountSummaryResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel1(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountSummaryResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountSummaryResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel2(in *jlexer.Lexer, out *AccountResponse) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "account":
+			if in.IsNull() {
+				in.Skip()
+				out.Account = nil
+			} else {
+				if out.Account == nil {
+					out.Account = new(Account)
+				}
+				(*out.Account).UnmarshalEasyJSON(in)
+			}
+		case "lastTransactionID":
+			out.LastTransactionID = TransactionID(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel2(out *jwriter.Writer, in AccountResponse) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"account\":"
+		out.RawString(prefix[1:])
+		if in.Account == nil {
+			out.RawString("null")
+		} else {
+			(*in.Account).MarshalEasyJSON(out)
+		}
+	}
+	{
+		const prefix string = ",\"lastTransactionID\":"
+		out.RawString(prefix)
+		out.String(string(in.LastTransactionID))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel2(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel2(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel2(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel2(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *AccountInstrumentsResponse) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "instruments":
+			if in.IsNull() {
+				in.Skip()
+				out.Instruments = nil
+			} else {
+				in.Delim('[')
+				if out.Instruments == nil {
+					if !in.IsDelim(']') {
+						out.Instruments = make([]*Instrument, 0, 8)
+					} else {
+						out.Instruments = []*Instrument{}
+					}
+				} else {
+					out.Instruments = (out.Instruments)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v4 *Instrument
+					if in.IsNull() {
+						in.Skip()
+						v4 = nil
+					} else {
+						if v4 == nil {
+							v4 = new(Instrument)
+						}
+						(*v4).UnmarshalEasyJSON(in)
+					}
+					out.Instruments = append(out.Instruments, v4)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "lastTransactionID":
+			out.LastTransactionID = TransactionID(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in AccountInstrumentsResponse) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"instruments\":"
+		out.RawString(prefix[1:])
+		if in.Instruments == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+			out.RawString("null")
+		} else {
+			out.RawByte('[')
+			for v5, v6 := range in.Instruments {
+				if v5 > 0 {
+					out.RawByte(',')
+				}
+				if v6 == nil {
+					out.RawString("null")
+				} else {
+					(*v6).MarshalEasyJSON(out)
+				}
+			}
+			out.RawByte(']')
+		}
+	}
+	{
+		const prefix string = ",\"lastTransactionID\":"
+		out.RawString(prefix)
+		out.String(string(in.LastTransactionID))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountInstrumentsResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel3(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountInstrumentsResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel3(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountInstrumentsResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel3(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountInstrumentsResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel3(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel4(in *jlexer.Lexer, out *AccountConfigurationResponse) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "clientConfigureTransaction":
+			if in.IsNull() {
+				in.Skip()
+				out.ClientConfigureTransaction = nil
+			} else {
+				if out.ClientConfigureTransaction == nil {
+					out.ClientConfigureTransaction = new(ClientConfigureTransaction)
+				}
+				(*out.ClientConfigureTransaction).UnmarshalEasyJSON(in)
+			}
+		case "lastTransactionID":
+			out.LastTransactionID = TransactionID(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel4(out *jwriter.Writer, in AccountConfigurationResponse) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"clientConfigureTransaction\":"
+		out.RawString(prefix[1:])
+		if in.ClientConfigureTransaction == nil {
+			out.RawString("null")
+		} else {
+			(*in.ClientConfigureTransaction).MarshalEasyJSON(out)
+		}
+	}
+	{
+		const prefix string = ",\"lastTransactionID\":"
+		out.RawString(prefix)
+		out.String(string(in.LastTransactionID))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountConfigurationResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel4(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountConfigurationResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel4(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountConfigurationResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel4(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountConfigurationResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel4(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel5(in *jlexer.Lexer, out *AccountConfigurationRequest) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "alias":
+			out.Alias = string(in.String())
+		case "marginRate":
+			out.MarginRate = DecimalNumber(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel5(out *jwriter.Writer, in AccountConfigurationRequest) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"alias\":"
+		out.RawString(prefix[1:])
+		out.String(string(in.Alias))
+	}
+	{
+		const prefix string = ",\"marginRate\":"
+		out.RawString(prefix)
+		out.String(string(in.MarginRate))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountConfigurationRequest) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel5(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountConfigurationRequest) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel5(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountConfigurationRequest) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel5(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountConfigurationRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel5(l, v)
+}
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel6(in *jlexer.Lexer, out *AccountConfigurationError) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -44,7 +599,7 @@ func easyjson73770c33DecodeGithubComKamaiuOandaGoModel(in *jlexer.Lexer, out *Ac
 				if out.ClientConfigureRejectTransaction == nil {
 					out.ClientConfigureRejectTransaction = new(ClientConfigureRejectTransaction)
 				}
-				easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(in, out.ClientConfigureRejectTransaction)
+				(*out.ClientConfigureRejectTransaction).UnmarshalEasyJSON(in)
 			}
 		case "lastTransactionID":
 			out.LastTransactionID = TransactionID(in.String())
@@ -62,7 +617,7 @@ func easyjson73770c33DecodeGithubComKamaiuOandaGoModel(in *jlexer.Lexer, out *Ac
 		in.Consumed()
 	}
 }
-func easyjson73770c33EncodeGithubComKamaiuOandaGoModel(out *jwriter.Writer, in AccountConfigurationError) {
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel6(out *jwriter.Writer, in AccountConfigurationError) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -72,7 +627,7 @@ func easyjson73770c33EncodeGithubComKamaiuOandaGoModel(out *jwriter.Writer, in A
 		if in.ClientConfigureRejectTransaction == nil {
 			out.RawString("null")
 		} else {
-			easyjson73770c33EncodeGithubComKamaiuOandaGoModel1(out, *in.ClientConfigureRejectTransaction)
+			(*in.ClientConfigureRejectTransaction).MarshalEasyJSON(out)
 		}
 	}
 	{
@@ -96,27 +651,27 @@ func easyjson73770c33EncodeGithubComKamaiuOandaGoModel(out *jwriter.Writer, in A
 // MarshalJSON supports json.Marshaler interface
 func (v AccountConfigurationError) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson73770c33EncodeGithubComKamaiuOandaGoModel(&w, v)
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel6(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v AccountConfigurationError) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson73770c33EncodeGithubComKamaiuOandaGoModel(w, v)
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel6(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *AccountConfigurationError) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson73770c33DecodeGithubComKamaiuOandaGoModel(&r, v)
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel6(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *AccountConfigurationError) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson73770c33DecodeGithubComKamaiuOandaGoModel(l, v)
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel6(l, v)
 }
-func easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *ClientConfigureRejectTransaction) {
+func easyjson73770c33DecodeGithubComKamaiuOandaGoModel7(in *jlexer.Lexer, out *AccountChangesResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -135,26 +690,49 @@ func easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *C
 			continue
 		}
 		switch key {
-		case "type":
-			out.Type = TransactionType(in.String())
-		case "alias":
-			out.Alias = string(in.String())
-		case "marginRate":
-			out.MarginRate = DecimalNumber(in.String())
-		case "rejectReason":
-			out.RejectReason = TransactionRejectReason(in.String())
-		case "id":
-			out.Id = TransactionID(in.String())
-		case "time":
-			out.Time = DateTime(in.String())
-		case "userID":
-			out.UserID = int64(in.Int64())
-		case "accountID":
-			out.AccountID = AccountID(in.String())
-		case "batchID":
-			out.BatchID = TransactionID(in.String())
-		case "requestID":
-			out.RequestID = RequestID(in.String())
+		case "changes":
+			if in.IsNull() {
+				in.Skip()
+				out.Changes = nil
+			} else {
+				in.Delim('[')
+				if out.Changes == nil {
+					if !in.IsDelim(']') {
+						out.Changes = make([]*AccountChanges, 0, 8)
+					} else {
+						out.Changes = []*AccountChanges{}
+					}
+				} else {
+					out.Changes = (out.Changes)[:0]
+				}
+				for !in.IsDelim(']') {
+					var v7 *AccountChanges
+					if in.IsNull() {
+						in.Skip()
+						v7 = nil
+					} else {
+						if v7 == nil {
+							v7 = new(AccountChanges)
+						}
+						(*v7).UnmarshalEasyJSON(in)
+					}
+					out.Changes = append(out.Changes, v7)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "lastTransactionID":
+			out.LastTransactionID = TransactionID(in.String())
+		case "state":
+			if in.IsNull() {
+				in.Skip()
+				out.State = nil
+			} else {
+				if out.State == nil {
+					out.State = new(AccountChangesState)
+				}
+				(*out.State).UnmarshalEasyJSON(in)
+			}
 		default:
 			in.SkipRecursive()
 		}
@@ -165,59 +743,67 @@ func easyjson73770c33DecodeGithubComKamaiuOandaGoModel1(in *jlexer.Lexer, out *C
 		in.Consumed()
 	}
 }
-func easyjson73770c33EncodeGithubComKamaiuOandaGoModel1(out *jwriter.Writer, in ClientConfigureRejectTransaction) {
+func easyjson73770c33EncodeGithubComKamaiuOandaGoModel7(out *jwriter.Writer, in AccountChangesResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
 	{
-		const prefix string = ",\"type\":"
+		const prefix string = ",\"changes\":"
 		out.RawString(prefix[1:])
-		out.String(string(in.Type))
+		if in.Changes == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+			out.RawString("null")
+		} else {
+			out.RawByte('[')
+			for v8, v9 := range in.Changes {
+				if v8 > 0 {
+					out.RawByte(',')
+				}
+				if v9 == nil {
+					out.RawString("null")
+				} else {
+					(*v9).MarshalEasyJSON(out)
+				}
+			}
+			out.RawByte(']')
+		}
 	}
 	{
-		const prefix string = ",\"alias\":"
+		const prefix string = ",\"lastTransactionID\":"
 		out.RawString(prefix)
-		out.String(string(in.Alias))
+		out.String(string(in.LastTransactionID))
 	}
 	{
-		const prefix string = ",\"marginRate\":"
+		const prefix string = ",\"state\":"
 		out.RawString(prefix)
-		out.String(string(in.MarginRate))
-	}
-	{
-		const prefix string = ",\"rejectReason\":"
-		out.RawString(prefix)
-		out.String(string(in.RejectReason))
-	}
-	{
-		const prefix string = ",\"id\":"
-		out.RawString(prefix)
-		out.String(string(in.Id))
-	}
-	{
-		const prefix string = ",\"time\":"
-		out.RawString(prefix)
-		out.String(string(in.Time))
-	}
-	{
-		const prefix string = ",\"userID\":"
-		out.RawString(prefix)
-		out.Int64(int64(in.UserID))
-	}
-	{
-		const prefix string = ",\"accountID\":"
-		out.RawString(prefix)
-		out.String(string(in.AccountID))
-	}
-	{
-		const prefix string = ",\"batchID\":"
-		out.RawString(prefix)
-		out.String(string(in.BatchID))
-	}
-	{
-		const prefix string = ",\"requestID\":"
-		out.RawString(prefix)
-		out.String(string(in.RequestID))
+		if in.State == nil {
+			out.RawString("null")
+		} else {
+			(*in.State).MarshalEasyJSON(out)
+		}
 	}
 	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v AccountChangesResponse) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel7(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v AccountChangesResponse) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjson73770c33EncodeGithubComKamaiuOandaGoModel7(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *AccountChangesResponse) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel7(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *AccountChangesResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjson73770c33DecodeGithubComKamaiuOandaGoModel7(l, v)
 }

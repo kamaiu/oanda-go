@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Supporting OANDA docs - http://developer.oanda.com/rest-live-v20/pricing-ep/
+// OANDA docs - http://developer.oanda.com/rest-live-v20/pricing-ep/
 
 // A PriceBucket represents a price available for an amount of liquidity
 type PriceBucket struct {

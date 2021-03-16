@@ -77,8 +77,8 @@ type frameReader struct {
 	current io.Reader
 }
 
-func newFrameReader(bufs ...io.Reader) *frameReader {
-	return &frameReader{frames: bufs}
+func newFrameReader(frames ...io.Reader) *frameReader {
+	return &frameReader{frames: frames}
 }
 
 func (m *frameReader) Read(b []byte) (n int, err error) {

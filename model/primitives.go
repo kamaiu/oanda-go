@@ -7,7 +7,8 @@ import (
 )
 
 // The string representation of a decimal number.
-// A decimal number encoded as a string. The amount of precision provided depends on what the number represents.
+// A decimal number encoded as a string. The amount of precision provided
+// depends on what the number represents.
 type DecimalNumber string
 
 func (d DecimalNumber) AsFloat64(or float64) float64 {
@@ -24,6 +25,17 @@ func (d DecimalNumber) AsFloat64(or float64) float64 {
 // The string representation of a Price for a Bucket.
 // A decimal number encodes as a string. The amount of precision provided depends on the Instrument.
 type PriceValue DecimalNumber
+
+func (d PriceValue) AsFloat64(or float64) float64 {
+	if len(d) == 0 {
+		return or
+	}
+	f, err := strconv.ParseFloat((string)(d), 64)
+	if err != nil {
+		return or
+	}
+	return f
+}
 
 // The string representation of a quantity of an Account’s home currency.
 // A decimal number encoded as a string. The amount of precision provided depends on the Account’s home currency.
