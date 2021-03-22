@@ -695,31 +695,10 @@ func easyjson73770c33DecodeGithubComKamaiuOandaGoModel7(in *jlexer.Lexer, out *A
 				in.Skip()
 				out.Changes = nil
 			} else {
-				in.Delim('[')
 				if out.Changes == nil {
-					if !in.IsDelim(']') {
-						out.Changes = make([]*AccountChanges, 0, 8)
-					} else {
-						out.Changes = []*AccountChanges{}
-					}
-				} else {
-					out.Changes = (out.Changes)[:0]
+					out.Changes = new(AccountChanges)
 				}
-				for !in.IsDelim(']') {
-					var v7 *AccountChanges
-					if in.IsNull() {
-						in.Skip()
-						v7 = nil
-					} else {
-						if v7 == nil {
-							v7 = new(AccountChanges)
-						}
-						(*v7).UnmarshalEasyJSON(in)
-					}
-					out.Changes = append(out.Changes, v7)
-					in.WantComma()
-				}
-				in.Delim(']')
+				(*out.Changes).UnmarshalEasyJSON(in)
 			}
 		case "lastTransactionID":
 			out.LastTransactionID = TransactionID(in.String())
@@ -750,21 +729,10 @@ func easyjson73770c33EncodeGithubComKamaiuOandaGoModel7(out *jwriter.Writer, in 
 	{
 		const prefix string = ",\"changes\":"
 		out.RawString(prefix[1:])
-		if in.Changes == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
+		if in.Changes == nil {
 			out.RawString("null")
 		} else {
-			out.RawByte('[')
-			for v8, v9 := range in.Changes {
-				if v8 > 0 {
-					out.RawByte(',')
-				}
-				if v9 == nil {
-					out.RawString("null")
-				} else {
-					(*v9).MarshalEasyJSON(out)
-				}
-			}
-			out.RawByte(']')
+			(*in.Changes).MarshalEasyJSON(out)
 		}
 	}
 	{

@@ -3,7 +3,9 @@ package model
 
 import (
 	"fmt"
+	"github.com/mailru/easyjson/jlexer"
 	"strings"
+	"time"
 )
 
 // OANDA docs - http://developer.oanda.com/rest-live-v20/pricing-ep/
@@ -130,4 +132,151 @@ type HomeConversions struct {
 	// currency into the Account’s home currency. Conversion is performed by
 	// multiplying the Position or Trade Value by the conversion factor.
 	PositionValue DecimalNumber `json:"positionValue"`
+}
+
+//easyjson:skip
+type StreamClientPrice struct {
+	instrument  [32]byte
+	Instrument  []byte
+	Time        time.Time
+	bids        [8]StreamPriceBucket
+	Bids        []StreamPriceBucket
+	asks        [8]StreamPriceBucket
+	Asks        []StreamPriceBucket
+	CloseoutBid float64
+	CloseoutAsk float64
+	Tradeable   bool
+	IsHeartbeat bool
+}
+
+//easyjson:skip
+type StreamPriceBucket struct {
+	// The Price offered by the PriceBucket
+	Price float64
+	// The amount of liquidity offered by the PriceBucket
+	Liquidity int64
+}
+
+func (out *StreamPriceBucket) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "price":
+			out.Price = (PriceValue)(in.UnsafeString()).AsFloat64(0)
+		case "liquidity":
+			out.Liquidity = in.Int64()
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+
+func (out *StreamClientPrice) UnmarshalJSON(b []byte) {
+	in := &jlexer.Lexer{Data: b}
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeFieldName(false)
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "type":
+			s := string(in.String())
+			out.IsHeartbeat = s == "HEARTBEAT"
+			//out.Type = string(in.String())
+		case "instrument":
+			s := in.UnsafeString()
+			if len(s) > len(out.instrument) {
+				s = s[0:len(out.Instrument)]
+			}
+			out.Instrument = out.instrument[0:len(s)]
+			copy(out.Instrument, s)
+		case "time":
+			out.Time, _ = (DateTime)(in.UnsafeString()).Parse()
+		case "tradeable":
+			out.Tradeable = bool(in.Bool())
+		case "bids":
+			if in.IsNull() {
+				in.Skip()
+				out.Bids = nil
+			} else {
+				in.Delim('[')
+				out.Bids = out.bids[:0]
+				for !in.IsDelim(']') {
+					var v1 StreamPriceBucket
+					(v1).UnmarshalEasyJSON(in)
+					if len(out.Bids)+1 == cap(out.bids) {
+						bids := make([]StreamPriceBucket, len(out.Bids), len(out.Bids)+1)
+						copy(bids, out.Bids)
+						out.Bids = bids
+					}
+					out.Bids = append(out.Bids, v1)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "asks":
+			if in.IsNull() {
+				in.Skip()
+				out.Asks = nil
+			} else {
+				in.Delim('[')
+				out.Asks = out.asks[:0]
+				for !in.IsDelim(']') {
+					var v2 StreamPriceBucket
+					(v2).UnmarshalEasyJSON(in)
+					if len(out.Asks)+1 == cap(out.asks) {
+						asks := make([]StreamPriceBucket, len(out.Asks), len(out.Asks)+1)
+						copy(asks, out.Asks)
+						out.Asks = asks
+					}
+					out.Asks = append(out.Asks, v2)
+					in.WantComma()
+				}
+				in.Delim(']')
+			}
+		case "closeoutBid":
+			out.CloseoutBid = (PriceValue)(in.UnsafeString()).AsFloat64(0)
+		case "closeoutAsk":
+			out.CloseoutAsk = (PriceValue)(in.UnsafeString()).AsFloat64(0)
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
 }

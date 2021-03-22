@@ -328,9 +328,17 @@ func easyjson821530a6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *I
 		case "marginRate":
 			out.MarginRate = DecimalNumber(in.String())
 		case "commission":
-			out.Commission = DecimalNumber(in.String())
+			if in.IsNull() {
+				in.Skip()
+				out.Commission = nil
+			} else {
+				if out.Commission == nil {
+					out.Commission = new(InstrumentCommission)
+				}
+				(*out.Commission).UnmarshalEasyJSON(in)
+			}
 		case "guaranteedStopLossOrderMode":
-			out.GuaranteedStopLossOrderMode = DecimalNumber(in.String())
+			out.GuaranteedStopLossOrderMode = GuaranteedStopLossOrderModeForInstrument(in.String())
 		case "guaranteedStopLossOrderExecutionPremium":
 			out.GuaranteedStopLossOrderExecutionPremium = DecimalNumber(in.String())
 		case "guaranteedStopLossOrderLevelRestriction":
@@ -344,7 +352,15 @@ func easyjson821530a6DecodeGithubComKamaiuOandaGoModel3(in *jlexer.Lexer, out *I
 				(*out.GuaranteedStopLossOrderLevelRestriction).UnmarshalEasyJSON(in)
 			}
 		case "financing":
-			(out.Financing).UnmarshalEasyJSON(in)
+			if in.IsNull() {
+				in.Skip()
+				out.Financing = nil
+			} else {
+				if out.Financing == nil {
+					out.Financing = new(InstrumentFinancing)
+				}
+				(*out.Financing).UnmarshalEasyJSON(in)
+			}
 		case "tags":
 			if in.IsNull() {
 				in.Skip()
@@ -450,7 +466,11 @@ func easyjson821530a6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 	{
 		const prefix string = ",\"commission\":"
 		out.RawString(prefix)
-		out.String(string(in.Commission))
+		if in.Commission == nil {
+			out.RawString("null")
+		} else {
+			(*in.Commission).MarshalEasyJSON(out)
+		}
 	}
 	{
 		const prefix string = ",\"guaranteedStopLossOrderMode\":"
@@ -474,7 +494,11 @@ func easyjson821530a6EncodeGithubComKamaiuOandaGoModel3(out *jwriter.Writer, in 
 	{
 		const prefix string = ",\"financing\":"
 		out.RawString(prefix)
-		(in.Financing).MarshalEasyJSON(out)
+		if in.Financing == nil {
+			out.RawString("null")
+		} else {
+			(*in.Financing).MarshalEasyJSON(out)
+		}
 	}
 	{
 		const prefix string = ",\"tags\":"

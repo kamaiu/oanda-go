@@ -289,9 +289,9 @@ type Instrument struct {
 	// The margin rate for this instrument.
 	MarginRate DecimalNumber `json:"marginRate"`
 	// The commission structure for this instrument.
-	Commission DecimalNumber `json:"commission"`
+	Commission *InstrumentCommission `json:"commission"`
 	// The current Guaranteed Stop Loss Order mode of the Account for this Instrument.
-	GuaranteedStopLossOrderMode DecimalNumber `json:"guaranteedStopLossOrderMode"`
+	GuaranteedStopLossOrderMode GuaranteedStopLossOrderModeForInstrument `json:"guaranteedStopLossOrderMode"`
 	// The amount that is charged to the account if a guaranteed Stop Loss Order
 	// is triggered and filled. The value is in price units and is charged for
 	// each unit of the Trade. This field will only be present if the Account’s
@@ -302,7 +302,7 @@ type Instrument struct {
 	// guaranteedStopLossOrderMode for this Instrument is not ‘DISABLED’.
 	GuaranteedStopLossOrderLevelRestriction *GuaranteedStopLossOrderLevelRestriction `json:"guaranteedStopLossOrderLevelRestriction"`
 	// Financing data for this instrument.
-	Financing InstrumentFinancing `json:"financing"`
+	Financing *InstrumentFinancing `json:"financing"`
 	// The tags associated with this instrument.
 	Tags []Tag `json:"tags"`
 }

@@ -58,7 +58,7 @@ type AccountChangesResponse struct {
 	// The changes to the Account’s Orders, Trades and Positions since the
 	// specified Transaction ID. Only provided if the sinceTransactionID is
 	// supplied to the poll request.
-	Changes []*AccountChanges `json:"changes"`
+	Changes *AccountChanges `json:"changes"`
 	// The ID of the last Transaction created for the Account.  This Transaction
 	// ID should be used for future poll requests, as the client has already
 	// observed all changes up to and including it.

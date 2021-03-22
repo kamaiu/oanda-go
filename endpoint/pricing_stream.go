@@ -5,6 +5,7 @@ import (
 	. "github.com/kamaiu/oanda-go/model"
 	"github.com/valyala/bytebufferpool"
 	"sync"
+	"time"
 )
 
 var (
@@ -60,28 +61,27 @@ func ReleaseClientPrice(price *ClientPrice) {
 }
 
 type PricingStreamHandler interface {
-	OnMessage(price *ClientPrice) error
+	OnMessage(price *StreamClientPrice) error
 
-	OnHeartbeat(time DateTime)
+	OnHeartbeat(time time.Time)
 
 	OnClose()
 }
 
 type pricingHandler struct {
 	handler PricingStreamHandler
+	price   StreamClientPrice
 }
 
 func (t *pricingHandler) handle(b []byte) error {
-	price := AcquireClientPrice()
-	err := price.UnmarshalJSON(b)
-	if err != nil {
-		return err
-	}
-	if price.Type == "HEARTBEAT" {
-		t.handler.OnHeartbeat(price.Time)
+	//price := AcquireClientPrice()
+	p := t.price
+	p.UnmarshalJSON(b)
+	if p.IsHeartbeat {
+		t.handler.OnHeartbeat(p.Time)
 		return nil
 	} else {
-		return t.handler.OnMessage(price)
+		return t.handler.OnMessage(&p)
 	}
 }
 

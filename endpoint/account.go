@@ -61,7 +61,7 @@ func (c *Connection) AccountSummary(
 // thus should be the same for all Accounts owned by a single user.
 func (c *Connection) AccountInstruments(
 	id AccountID,
-	filter []string,
+	filter ...string,
 ) (*AccountInstrumentsResponse, error) {
 	url := bytebufferpool.Get()
 	_, _ = url.WriteString(c.host)
@@ -71,7 +71,7 @@ func (c *Connection) AccountInstruments(
 		_, _ = url.WriteString("/instruments?instruments=")
 		for i, s := range filter {
 			if i > 0 {
-				_, _ = url.WriteString(",")
+				_, _ = url.WriteString(UrlEncodedComma)
 			}
 			_, _ = url.WriteString(s)
 		}
