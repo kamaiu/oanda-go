@@ -87,21 +87,3 @@ func (c *Connection) TransactionsSinceID(
 	}
 	return resp, nil
 }
-
-// TODO:
-// GET /v3/accounts/{accountID}/transactions/Stream
-// Get a Stream of Transactions for an Account starting from when the
-// request is made.
-// Note: This endpoint is served by the streaming URLs.
-//
-// Response Body Schema (application/octet-Stream)
-// The response body for the Transaction Stream uses chunked transfer encoding.
-// Each chunk contains Transaction and/or TransactionHeartbeat objects encoded
-// as JSON. Each JSON object is serialized into a single line of text, and multiple
-// objects found in the same chunk are separated by newlines.
-// TransactionHeartbeats are sent every 5 seconds.
-//
-// The specification for the objects found in response Stream are as follows:
-//
-//		Transaction
-//		TransactionHeartbeat

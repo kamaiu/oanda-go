@@ -47,11 +47,14 @@ const DefaultUserAgent string = "oanda-go/0.9.0"
 
 func NewConnection(token string, live bool) *Connection {
 	host := ""
+	fastHttpHost := ""
 	hostStreaming := ""
 	if live {
+		fastHttpHost = "api-fxtrade.oanda.com:443"
 		host = "https://api-fxtrade.oanda.com"
 		hostStreaming = "https://stream-fxtrade.oanda.com"
 	} else {
+		fastHttpHost = "api-fxpractice.oanda.com:443"
 		host = "https://api-fxpractice.oanda.com"
 		hostStreaming = "https://stream-fxpractice.oanda.com"
 	}
@@ -67,7 +70,7 @@ func NewConnection(token string, live bool) *Connection {
 		agent:         DefaultUserAgent,
 		// HTTP client used for REST endpoints
 		restClient: &fasthttp.HostClient{
-			Addr:                          host,
+			Addr:                          fastHttpHost,
 			Name:                          "oanda",
 			NoDefaultUserAgentHeader:      true,
 			Dial:                          fasthttp.Dial,
@@ -108,6 +111,7 @@ func NewConnection(token string, live bool) *Connection {
 }
 
 type call struct {
+	conn *Connection
 	req  *fasthttp.Request
 	resp *fasthttp.Response
 }
@@ -119,6 +123,7 @@ func newCall(
 	timeFormat AcceptDatetimeFormat,
 ) *call {
 	ctx := &call{
+		conn: conn,
 		req:  fasthttp.AcquireRequest(),
 		resp: fasthttp.AcquireResponse(),
 	}
@@ -144,7 +149,7 @@ func newCall(
 
 func (c *call) complete(unmarshaller json.Unmarshaler) error {
 	defer c.release()
-	err := fasthttp.DoRedirects(c.req, c.resp, maxRedirectsCount)
+	err := c.conn.restClient.DoRedirects(c.req, c.resp, maxRedirectsCount)
 	if err != nil {
 		return err
 	}
@@ -172,7 +177,7 @@ func doGET(
 	ctx := newCall(conn, fasthttp.MethodGet, url, timeFormat)
 	defer ctx.release()
 
-	err = fasthttp.DoRedirects(ctx.req, ctx.resp, maxRedirectsCount)
+	err = conn.restClient.DoRedirects(ctx.req, ctx.resp, maxRedirectsCount)
 	if err != nil {
 		return 0, err
 	}
