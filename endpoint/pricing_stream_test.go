@@ -16,7 +16,7 @@ func TestPricingStream(t *testing.T) {
 
 	conn := PricingHandler{}
 	stream, err := c.StartPricingStream(accounts.Accounts[0].ID, NewPricingStreamRequest(
-		"EUR_USD", //"USD_CAD", "USD_CHF", "GBP_USD",
+		"EUR_USD", "USD_CAD", "USD_CHF", "GBP_USD",
 	), conn)
 	if err != nil {
 		t.Fatal(err)

@@ -45,6 +45,10 @@ func newPracticeConnection() *Connection {
 	return NewConnection(apiPracticeToken, false)
 }
 
+func TestConnection_AccountInstruments2(t *testing.T) {
+
+}
+
 func TestConnection_InstrumentCandles(t *testing.T) {
 	c := newPracticeConnection()
 	resp, err := c.InstrumentCandles(

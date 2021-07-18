@@ -8,7 +8,8 @@ import (
 )
 
 func TestTransactionStream(t *testing.T) {
-	c := newPracticeConnection()
+	//c := newPracticeConnection()
+	c := newLiveConnection()
 	accounts, err := c.Accounts()
 	if err != nil {
 		t.Fatal(err)

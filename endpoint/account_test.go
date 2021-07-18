@@ -60,6 +60,11 @@ func TestConnection_AccountInstruments(t *testing.T) {
 	if len(instruments.Instruments) == 0 {
 		t.Fatal("no instruments in response")
 	}
+	j, err := instruments.MarshalJSON()
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(string(j))
 }
 
 func TestConnection_AccountChanges(t *testing.T) {
